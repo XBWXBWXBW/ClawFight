@@ -32,6 +32,28 @@ namespace ProtoGen
                 p.Start();
                 Console.WriteLine(protoName);
             }
+
+            string clientPath = @"..\Client\ClawFight\ClawFight\Assets\Scripts\Message\Message";
+            DirectoryInfo clientDI = new DirectoryInfo(clientPath);
+            while (clientDI.GetFiles().Length != 0) {
+                clientDI.GetFiles()[0].Delete();
+            }
+
+            string serverPath = @"..\Server\Server\ClawFight\ClawFight\Message";
+            DirectoryInfo serverDI = new DirectoryInfo(serverPath);
+            while (serverDI.GetFiles().Length != 0) {
+                serverDI.GetFiles()[0].Delete();
+            }
+
+            string csharpPath = @"csharp";
+            DirectoryInfo _csharpDI = new DirectoryInfo(csharpPath);
+            foreach (var fi in _csharpDI.GetFiles()) {
+                string cDst = string.Format(@"{0}\{1}", clientPath, fi.Name);
+                fi.CopyTo(cDst, true);
+
+                string sDst = string.Format(@"{0}\{1}", serverPath, fi.Name);
+                fi.CopyTo(sDst, true);
+            }
             Console.WriteLine("Done!");
             Console.ReadKey();
         }

@@ -1,0 +1,11 @@
+syntax = "proto3";
+option java_multiple_files = true;
+
+package com.coolfish.hotfire.protocol.battle;
+option java_package = "com.coolfish.hotfire.protocol.battle";
+option csharp_namespace = "message";
+
+message RawMessage {
+	int32 messageType = 1;
+	bytes messageBody = 2;
+}

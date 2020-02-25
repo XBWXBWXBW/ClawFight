@@ -10,6 +10,10 @@ namespace ClawFight
     {
         static void Main(string[] args)
         {
+            TcpConnect tc = new TcpConnect();
+            tc.Start();
+
+            Console.ReadKey();
         }
     }
 }
