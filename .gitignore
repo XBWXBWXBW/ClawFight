@@ -4,3 +4,9 @@ Server/Server/ClawFight/ClawFight/Properties/AssemblyInfo.cs
 Server/Server/ClawFight/ClawFight/ClawFight.csproj
 Server/Server/ClawFight/ClawFight.sln
 Server/Server/ClawFight/ClawFight/App.config
+Proto/ProtoGen/ProtoGen/.vs/
+Proto/ProtoGen/ProtoGen/ProtoGen/obj/
+Proto/ProtoGen/ProtoGen/ProtoGen/ProtoGen.csproj
+Proto/ProtoGen/ProtoGen/ProtoGen.sln
+Proto/ProtoGen/ProtoGen/ProtoGen/App.config
+Proto/ProtoGen/ProtoGen/ProtoGen/Properties/AssemblyInfo.cs
