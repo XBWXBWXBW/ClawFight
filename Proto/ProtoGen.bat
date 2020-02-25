@@ -1,0 +1,1 @@
+call ProtoGen\ProtoGen\ProtoGen\bin\Debug\ProtoGen.exe
