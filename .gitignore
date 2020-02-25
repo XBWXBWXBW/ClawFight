@@ -10,3 +10,6 @@ Proto/ProtoGen/ProtoGen/ProtoGen/ProtoGen.csproj
 Proto/ProtoGen/ProtoGen/ProtoGen.sln
 Proto/ProtoGen/ProtoGen/ProtoGen/App.config
 Proto/ProtoGen/ProtoGen/ProtoGen/Properties/AssemblyInfo.cs
+Client/ClawFight/ClawFight/Library/
+Client/ClawFight/ClawFight/Logs/
+Client/ClawFight/ClawFight/Temp/
