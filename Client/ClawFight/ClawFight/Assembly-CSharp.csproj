@@ -71,6 +71,7 @@
     <Compile Include="Assets\Scripts\Message\Message\Hall.cs" />
     <Compile Include="Assets\Scripts\Message\MessageCreater.cs" />
     <Compile Include="Assets\Scripts\Player\Hall\HallPlayer.cs" />
+    <Compile Include="Assets\Scripts\Proxy\ConnectProxy.cs" />
     <Compile Include="Assets\Scripts\Proxy\MatchProxy.cs" />
     <Compile Include="Assets\Scripts\Proxy\ProxyBase.cs" />
     <Compile Include="Assets\Scripts\View\HomeView.cs" />

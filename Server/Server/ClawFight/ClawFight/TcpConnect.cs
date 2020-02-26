@@ -32,8 +32,9 @@ namespace ClawFight
             {
                 Socket tcpSocket = ia.AsyncState as Socket;
                 Socket client = tcpSocket.EndAccept(ia);
-
+                Console.WriteLine(client.RemoteEndPoint.ToString());
                 client.BeginReceive(bytes, 0, bytes.Length, SocketFlags.None, EndReceive, client);
+                tcpSocket.BeginAccept(EndAccept, tcpSocket);
             }
             catch {
 
