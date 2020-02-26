@@ -26,6 +26,7 @@ public class TcpConnect : ConnectBase
         try
         {
             tcpSocket.EndConnect(ia);
+            EventManager.instance.SendEvent(HallEvents.HALLEVENT_CONNECTED);
         }
         catch {
         }
