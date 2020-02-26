@@ -25,14 +25,14 @@ namespace message {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "CgpIYWxsLnByb3RvEiRjb20uY29vbGZpc2guaG90ZmlyZS5wcm90b2NvbC5i",
-            "YXR0bGUiHQoNQ1NQX0pvaW5NYXRjaBIMCgR0ZWFtGAEgASgFIiEKDVNDUF9K",
-            "b2luTWF0Y2gSEAoIcGxheWVySUQYASABKAVCMgokY29tLmNvb2xmaXNoLmhv",
-            "dGZpcmUucHJvdG9jb2wuYmF0dGxlUAGqAgdtZXNzYWdlYgZwcm90bzM="));
+            "YXR0bGUiHQoNQ1NQX0pvaW5NYXRjaBIMCgR0ZWFtGAEgASgFIh4KClBsYXll",
+            "ckluZm8SEAoIcGxheWVySUQYASABKAVCMgokY29tLmNvb2xmaXNoLmhvdGZp",
+            "cmUucHJvdG9jb2wuYmF0dGxlUAGqAgdtZXNzYWdlYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::message.CSP_JoinMatch), global::message.CSP_JoinMatch.Parser, new[]{ "Team" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::message.SCP_JoinMatch), global::message.SCP_JoinMatch.Parser, new[]{ "PlayerID" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::message.PlayerInfo), global::message.PlayerInfo.Parser, new[]{ "PlayerID" }, null, null, null, null)
           }));
     }
     #endregion
@@ -168,11 +168,11 @@ namespace message {
 
   }
 
-  public sealed partial class SCP_JoinMatch : pb::IMessage<SCP_JoinMatch> {
-    private static readonly pb::MessageParser<SCP_JoinMatch> _parser = new pb::MessageParser<SCP_JoinMatch>(() => new SCP_JoinMatch());
+  public sealed partial class PlayerInfo : pb::IMessage<PlayerInfo> {
+    private static readonly pb::MessageParser<PlayerInfo> _parser = new pb::MessageParser<PlayerInfo>(() => new PlayerInfo());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<SCP_JoinMatch> Parser { get { return _parser; } }
+    public static pb::MessageParser<PlayerInfo> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
@@ -185,21 +185,21 @@ namespace message {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public SCP_JoinMatch() {
+    public PlayerInfo() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public SCP_JoinMatch(SCP_JoinMatch other) : this() {
+    public PlayerInfo(PlayerInfo other) : this() {
       playerID_ = other.playerID_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public SCP_JoinMatch Clone() {
-      return new SCP_JoinMatch(this);
+    public PlayerInfo Clone() {
+      return new PlayerInfo(this);
     }
 
     /// <summary>Field number for the "playerID" field.</summary>
@@ -215,11 +215,11 @@ namespace message {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as SCP_JoinMatch);
+      return Equals(other as PlayerInfo);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(SCP_JoinMatch other) {
+    public bool Equals(PlayerInfo other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -269,7 +269,7 @@ namespace message {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(SCP_JoinMatch other) {
+    public void MergeFrom(PlayerInfo other) {
       if (other == null) {
         return;
       }

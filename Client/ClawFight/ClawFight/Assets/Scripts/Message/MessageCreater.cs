@@ -4,9 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using message;
 
-public enum EMessageType {
-    CSP_JoinMatch = 1,
-}
 public class MessageCreater
 {
     public static IMessage CreateMessage(EMessageType messageType) {
