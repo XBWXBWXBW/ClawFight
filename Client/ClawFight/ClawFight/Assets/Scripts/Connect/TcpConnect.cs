@@ -4,6 +4,9 @@ using System.Net;
 using System.Net.Sockets;
 using UnityEngine;
 using System;
+using message;
+using Google.Protobuf;
+using System.IO;
 
 public class TcpConnect : ConnectBase
 {
@@ -25,6 +28,15 @@ public class TcpConnect : ConnectBase
             tcpSocket.EndConnect(ia);
         }
         catch {
+        }
+    }
+    void EndSend(IAsyncResult ia) {
+        try
+        {
+            tcpSocket.EndSend(ia);
+        }
+        catch {
+
         }
     }
 }
