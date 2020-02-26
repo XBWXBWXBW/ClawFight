@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EventManager
+public class EventManager : ManagerBase<EventManager>
 {
     private interface IAction { }
     private class ActionEvent<T> : IAction {
@@ -19,15 +19,7 @@ public class EventManager
             action.Invoke(param);
         }
     }
-    private static EventManager _instance;
-    public static EventManager instance {
-        get {
-            if (_instance == null) {
-                _instance = new EventManager();
-            }
-            return _instance;
-        }
-    }
+   
     private Dictionary<string, IAction> actionTDict = new Dictionary<string, IAction>();
     private Dictionary<string, Action> actionDict = new Dictionary<string, Action>();
     public void RegistEventT<T>(string eventName, Action<T> action) {

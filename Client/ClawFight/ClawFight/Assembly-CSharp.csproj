@@ -63,8 +63,10 @@
     <Compile Include="Assets\Scripts\Connect\ConnectBase.cs" />
     <Compile Include="Assets\Scripts\Connect\ConnectManager.cs" />
     <Compile Include="Assets\Scripts\Connect\TcpConnect.cs" />
+    <Compile Include="Assets\Scripts\Event\AllEvents.cs" />
     <Compile Include="Assets\Scripts\Event\EventManager.cs" />
     <Compile Include="Assets\Scripts\Game\GameManager.cs" />
+    <Compile Include="Assets\Scripts\Game\ManagerBase.cs" />
     <Compile Include="Assets\Scripts\Message\Message\Common.cs" />
     <Compile Include="Assets\Scripts\Message\Message\Hall.cs" />
     <Compile Include="Assets\Scripts\Message\MessageCreater.cs" />

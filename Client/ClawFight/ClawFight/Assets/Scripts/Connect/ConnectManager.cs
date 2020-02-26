@@ -6,7 +6,7 @@ public enum EConnectType
 {
     TCP,
 }
-public class ConnectManager
+public class ConnectManager : ManagerBase<ConnectManager>
 {
     public void Connect(EConnectType connectType) {
         switch (connectType) {
