@@ -11,6 +11,7 @@ using System.IO;
 public class TcpConnect : ConnectBase
 {
     Socket tcpSocket;
+    byte[] bytes = new byte[1024];
     public void Start() {
         tcpSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 
@@ -27,14 +28,27 @@ public class TcpConnect : ConnectBase
         {
             tcpSocket.EndConnect(ia);
             GameManager.instance.connectProxy.Connected();
+
+            tcpSocket.BeginReceive(bytes, 0, bytes.Length, SocketFlags.None, EndReceive, tcpSocket);
         }
         catch {
         }
     }
-    void EndSend(IAsyncResult ia) {
+    
+    void EndReceive(IAsyncResult ia) {
         try
         {
-            tcpSocket.EndSend(ia);
+            int _size = tcpSocket.EndReceive(ia);
+            RawMessage rawMessage = new RawMessage();
+            using (MemoryStream ms = new MemoryStream()) {
+                using (CodedInputStream cis = new CodedInputStream(ms)) {
+                    ms.Write(bytes, 0, _size);
+                    ms.Position = 0;
+                    rawMessage.MergeFrom(cis);
+                }
+            }
+            Debug.LogError("XBW~~~ recevie " + rawMessage.MessageType);
+            tcpSocket.BeginReceive(bytes, 0, bytes.Length, SocketFlags.None, EndReceive, tcpSocket);
         }
         catch {
 

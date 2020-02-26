@@ -8,3 +8,10 @@ option csharp_namespace = "message";
 message CSP_JoinMatch {
 	int32 team = 1;
 }
+message SCP_JoinMatch {
+	
+}
+message PlayerInfo {
+	int32 playerID = 1;
+}
+
