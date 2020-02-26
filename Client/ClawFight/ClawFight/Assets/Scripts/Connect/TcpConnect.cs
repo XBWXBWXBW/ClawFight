@@ -49,7 +49,10 @@ public class TcpConnect : ConnectBase
             }
             ByteString bs = rawMessage.MessageBody;
             CodedInputStream cis_body = bs.CreateCodedInput();
-            
+            IMessage m = MessageCreater.CreateMessage((EMessageType)rawMessage.MessageType);
+            m.MergeFrom(cis_body);
+            GameManager.instance.connectProxy.ReceiveProto((EMessageType)rawMessage.MessageType, m);
+
             tcpSocket.BeginReceive(bytes, 0, bytes.Length, SocketFlags.None, EndReceive, tcpSocket);
         }
         catch {

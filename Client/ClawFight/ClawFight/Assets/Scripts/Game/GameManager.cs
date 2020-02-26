@@ -6,7 +6,6 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public MatchProxy matchProxy;
-    public HallPlayer hallPlayer;
     public ConnectProxy connectProxy;
     public List<IEnumerator> tasks = new List<IEnumerator>();
     public List<IEnumerator> removeTasks = new List<IEnumerator>();
@@ -14,11 +13,9 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
         instance = this;
 
         matchProxy = new MatchProxy();
-        hallPlayer = new HallPlayer();
         connectProxy = new ConnectProxy();
         PlayerManager.instance.Init();
     }

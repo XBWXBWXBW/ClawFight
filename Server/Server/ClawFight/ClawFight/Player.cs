@@ -22,9 +22,11 @@ namespace ClawFight
             SendPlayerInfo();
         }
         private void SendPlayerInfo() {
+            SyncInfo si = new SyncInfo();
             PlayerInfo pi = new PlayerInfo();
             pi.PlayerID = playerData.ID;
-            SendMessage(pi, (int)EMessageType.PlayerInfo);
+            si.PlayerInfo = pi;
+            SendMessage(si, (int)EMessageType.SyncInfo);
         }
         public void SendMessage(IMessage message,int messageID) {
             ByteString bs = null;

@@ -89,4 +89,10 @@ public class EventManager : ManagerBase<EventManager>
             }
         }
     }
+    public void SendProto(EMessageType messageType, IMessage m) {
+        if (messageDict.ContainsKey(messageType))
+        {
+            messageDict[messageType].Invoke(m);
+        }
+    }
 }

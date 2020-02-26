@@ -11,9 +11,20 @@ public class NavigationView : ViewBase
     {
     }
 
+    private void OnEnable()
+    {
+        EventManager.instance.RegistEvent(HallEvents.HALLEVENT_SYNCINFO, OnSyncInfo);
+    }
+    private void OnDisable()
+    {
+        EventManager.instance.UnRegistEvent(HallEvents.HALLEVENT_SYNCINFO, OnSyncInfo);
+    }
     // Update is called once per frame
     void Update()
     {
         
+    }
+    void OnSyncInfo() {
+        IDText.text = PlayerManager.instance.mainPlayer.playerData.ID.ToString();
     }
 }
