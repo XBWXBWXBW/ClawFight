@@ -40,14 +40,16 @@ public class TcpConnect : ConnectBase
         {
             int _size = tcpSocket.EndReceive(ia);
             RawMessage rawMessage = new RawMessage();
-            using (MemoryStream ms = new MemoryStream()) {
-                using (CodedInputStream cis = new CodedInputStream(ms)) {
-                    ms.Write(bytes, 0, _size);
-                    ms.Position = 0;
-                    rawMessage.MergeFrom(cis);
+            using (MemoryStream ms_raw = new MemoryStream()) {
+                using (CodedInputStream cis_raw = new CodedInputStream(ms_raw)) {
+                    ms_raw.Write(bytes, 0, _size);
+                    ms_raw.Position = 0;
+                    rawMessage.MergeFrom(cis_raw);
                 }
             }
-            Debug.LogError("XBW~~~ recevie " + rawMessage.MessageType);
+            ByteString bs = rawMessage.MessageBody;
+            CodedInputStream cis_body = bs.CreateCodedInput();
+            
             tcpSocket.BeginReceive(bytes, 0, bytes.Length, SocketFlags.None, EndReceive, tcpSocket);
         }
         catch {

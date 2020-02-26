@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace ProtoGen
 {
@@ -12,12 +13,14 @@ namespace ProtoGen
     {
         static void Main(string[] args)
         {
-            //generate proto script
+            generate proto script
             GenerateProtoScript();
 
             //add EMessageType
             AddMessageType();
 
+            //create Msg creater
+            CreateMsgCreater();
 
             Console.WriteLine("Done!");
             Console.ReadKey();
@@ -82,6 +85,61 @@ namespace ProtoGen
 
             string serverTypePath = @"..\Server\Server\ClawFight\ClawFight\EMessageType\EMessageType.cs";
             if (!File.Exists(serverTypePath)) {
+                File.Create(serverTypePath);
+            }
+            File.WriteAllText(serverTypePath, final);
+        }
+        private static void CreateMsgCreater() {
+
+            string template = @"using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class MessageCreater
+{
+    public static Google.Protobuf.IMessage CreateMessage(EMessageType msgType) {
+        Google.Protobuf.IMessage message = null;
+        switch (msgType) {
+            {__CASE_TMP__}
+        }
+        return message;
+    }
+}
+";
+            string caseTemplate = @"case EMessageType.{__MESSAGE_NAME__}:
+                message = new message.{__MESSAGE_NAME__}();
+                break;";
+
+            string originalTypePath = @"EMessageType.txt";
+            string content = File.ReadAllText(originalTypePath);
+            string[] sArray = content.Split('\n');
+            List<string> allProtos = new List<string>();
+            foreach (var s in sArray) {
+                allProtos.Add(s.Split('=')[0]);
+            }
+
+            //handle case
+            StringBuilder sbCase = new StringBuilder();
+            Regex regex_case = new Regex("{__MESSAGE_NAME__}");
+            foreach (var p in allProtos) {
+                sbCase.Append(regex_case.Replace(caseTemplate, p));
+                sbCase.Append("\n");
+            }
+
+            //handle final
+            Regex regex_all = new Regex("{__CASE_TMP__}");
+            string final = regex_all.Replace(template, sbCase.ToString());
+
+            string clientTypePath = @"..\Client\ClawFight\ClawFight\Assets\Scripts\Message\MessageCreater.cs";
+            if (!File.Exists(clientTypePath))
+            {
+                File.Create(clientTypePath);
+            }
+            File.WriteAllText(clientTypePath, final);
+
+            string serverTypePath = @"..\Server\Server\ClawFight\ClawFight\EMessageType\MessageCreater.cs";
+            if (!File.Exists(serverTypePath))
+            {
                 File.Create(serverTypePath);
             }
             File.WriteAllText(serverTypePath, final);

@@ -23,8 +23,8 @@ namespace ClawFight
             {
                 playerData = pd,
             };
-
             playerDict.Add(maxID, p);
+            p.Init();
             return p;
         }
     }

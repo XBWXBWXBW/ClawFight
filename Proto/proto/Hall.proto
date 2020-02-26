@@ -13,3 +13,6 @@ message PlayerInfo {
 	int32 playerID = 1;
 }
 
+message SyncInfo{
+	PlayerInfo playerInfo = 1;
+}

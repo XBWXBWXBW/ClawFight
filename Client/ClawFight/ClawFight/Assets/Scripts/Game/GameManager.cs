@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public ConnectProxy connectProxy;
     public List<IEnumerator> tasks = new List<IEnumerator>();
     public List<IEnumerator> removeTasks = new List<IEnumerator>();
+    private List<IManager> managerList = new List<IManager>();
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +20,7 @@ public class GameManager : MonoBehaviour
         matchProxy = new MatchProxy();
         hallPlayer = new HallPlayer();
         connectProxy = new ConnectProxy();
+        PlayerManager.instance.Init();
     }
 
     // Update is called once per frame
@@ -33,5 +35,10 @@ public class GameManager : MonoBehaviour
             tasks.Remove(t);
         }
         removeTasks.Clear();
+    }
+    public void AddManager(IManager m) {
+        if (!managerList.Contains(m)) {
+            managerList.Add(m);
+        }
     }
 }

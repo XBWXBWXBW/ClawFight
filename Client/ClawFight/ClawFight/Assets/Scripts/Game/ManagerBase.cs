@@ -2,7 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ManagerBase<T> where T : ManagerBase<T>, new ()
+public interface IManager {
+    void OnDestroy();
+    void Init();
+}
+
+public class ManagerBase<T> : IManager where T : ManagerBase<T>, new ()
 {
     private static T _instance;
     public static T instance {
@@ -13,4 +18,6 @@ public class ManagerBase<T> where T : ManagerBase<T>, new ()
             return _instance;
         }
     }
+    public virtual void OnDestroy() { }
+    public virtual void Init() { }
 }

@@ -13,15 +13,18 @@ namespace ClawFight
     {
         public PlayerData playerData;
 
-        private Socket socket;
+        private Socket socket = null;
         private byte[] bytes = new byte[1024];
         public void Init() {
+            socket = playerData.socket;
+
             BeginReceive();
             SendPlayerInfo();
         }
         private void SendPlayerInfo() {
             PlayerInfo pi = new PlayerInfo();
             pi.PlayerID = playerData.ID;
+            SendMessage(pi, (int)EMessageType.PlayerInfo);
         }
         public void SendMessage(IMessage message,int messageID) {
             ByteString bs = null;
