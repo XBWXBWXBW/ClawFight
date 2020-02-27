@@ -68,10 +68,12 @@ namespace ClawFight
                     }
                 }
                 CodedInputStream cis_body = rawMessage.MessageBody.CreateCodedInput();
+                IMessage messageBody = MessageCreater.CreateMessage((EMessageType)rawMessage.MessageType);
+                messageBody.MergeFrom(cis_body);
 
                 foreach (var e in player_socket_dict) {
                     if (e.Value == pClientSocket) {
-                        Console.WriteLine("Receive : playerID " +e.Key.playerData.ID);
+                        Console.WriteLine("Receive : playerID " +e.Key.playerData.ID+"  messageType: "+ (EMessageType)rawMessage.MessageType);
                     }
                 }
 
