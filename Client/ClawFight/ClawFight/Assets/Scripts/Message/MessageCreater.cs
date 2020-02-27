@@ -16,6 +16,12 @@ case EMessageType.PlayerInfo:
 case EMessageType.SyncInfo:
                 message = new message.SyncInfo();
                 break;
+case EMessageType.BeginMatch:
+                message = new message.BeginMatch();
+                break;
+case EMessageType.CancelMatch:
+                message = new message.CancelMatch();
+                break;
 
         }
         return message;

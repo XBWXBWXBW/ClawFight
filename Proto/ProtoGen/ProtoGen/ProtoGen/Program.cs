@@ -13,7 +13,7 @@ namespace ProtoGen
     {
         static void Main(string[] args)
         {
-            generate proto script
+            //generate proto script
             GenerateProtoScript();
 
             //add EMessageType

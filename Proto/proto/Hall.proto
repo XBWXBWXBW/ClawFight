@@ -16,3 +16,11 @@ message PlayerInfo {
 message SyncInfo{
 	PlayerInfo playerInfo = 1;
 }
+
+message BeginMatch {
+	int32 playerID = 1;
+}
+
+message CancelMatch {
+	int32 playerID = 1;
+}
