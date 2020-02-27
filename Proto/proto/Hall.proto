@@ -24,3 +24,7 @@ message BeginMatch {
 message CancelMatch {
 	int32 playerID = 1;
 }
+
+message CreateRoom {
+	int32 ownerPlayerID = 1;
+}

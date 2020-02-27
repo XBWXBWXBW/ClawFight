@@ -4,4 +4,5 @@ PlayerInfo=2,
 SyncInfo=3,
 BeginMatch=4,
 CancelMatch=5,
+CreateRoom=6,
 }

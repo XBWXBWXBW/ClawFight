@@ -22,6 +22,9 @@ case EMessageType.BeginMatch:
 case EMessageType.CancelMatch:
                 message = new message.CancelMatch();
                 break;
+case EMessageType.CreateRoom:
+                message = new message.CreateRoom();
+                break;
 
         }
         return message;
