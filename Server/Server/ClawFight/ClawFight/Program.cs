@@ -10,8 +10,8 @@ namespace ClawFight
     {
         static void Main(string[] args)
         {
-            TcpConnect tc = new TcpConnect();
-            tc.Start();
+            GameManager gameManager = new GameManager();
+            ConnectManager.instance.Start();
 
             Console.ReadKey();
         }

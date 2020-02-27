@@ -13,12 +13,7 @@ namespace ClawFight
     {
         public PlayerData playerData;
 
-        private Socket socket = null;
-        private byte[] bytes = new byte[1024];
         public void Init() {
-            socket = playerData.socket;
-
-            BeginReceive();
             SendPlayerInfo();
         }
         private void SendPlayerInfo() {
@@ -26,43 +21,8 @@ namespace ClawFight
             PlayerInfo pi = new PlayerInfo();
             pi.PlayerID = playerData.ID;
             si.PlayerInfo = pi;
-            SendMessage(si, (int)EMessageType.SyncInfo);
+            ConnectManager.instance.tcpConnect.SendMessage(this, si, (int)EMessageType.SyncInfo);
         }
-        public void SendMessage(IMessage message,int messageID) {
-            ByteString bs = null;
-            using (MemoryStream ms_body = new MemoryStream())
-            {
-                using (CodedOutputStream cos_body = new CodedOutputStream(ms_body))
-                {
-                    message.WriteTo(cos_body);
-                    cos_body.Flush();
-                    ms_body.Position = 0;
-                    bs = ByteString.FromStream(ms_body);
-                }
-            }
-
-            RawMessage rawMessage = new RawMessage();
-            rawMessage.MessageType = messageID;
-            rawMessage.MessageBody = bs;
-
-            using (MemoryStream ms_raw = new MemoryStream()) {
-                using (CodedOutputStream cos_raw = new CodedOutputStream(ms_raw)) {
-                    rawMessage.WriteTo(cos_raw);
-                    cos_raw.Flush();
-                    byte[] buffer = ms_raw.GetBuffer();
-                    socket.BeginSend(buffer, 0, (int)ms_raw.Position, SocketFlags.None, EndSend, null);
-                }
-            }
-        }
-        void EndSend(IAsyncResult ia) {
-            socket.EndSend(ia);
-        }
-        void BeginReceive() {
-            socket.BeginReceive(bytes, 0, bytes.Length, SocketFlags.None, EndReceive, null);
-        }
-        void EndReceive(IAsyncResult ia) {
-            int _size = socket.EndReceive(ia);
-
-        }
+        
     }
 }

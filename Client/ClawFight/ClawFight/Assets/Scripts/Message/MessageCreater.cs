@@ -16,14 +16,8 @@ case EMessageType.PlayerInfo:
 case EMessageType.SyncInfo:
                 message = new message.SyncInfo();
                 break;
-case EMessageType.BeginMatch:
-                message = new message.BeginMatch();
-                break;
-case EMessageType.CancelMatch:
-                message = new message.CancelMatch();
-                break;
-case EMessageType.CreateRoom:
-                message = new message.CreateRoom();
+case EMessageType.C_JoinRoom:
+                message = new message.C_JoinRoom();
                 break;
 
         }

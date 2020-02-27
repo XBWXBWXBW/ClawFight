@@ -28,19 +28,16 @@ namespace message {
             "YXR0bGUiHQoNQ1NQX0pvaW5NYXRjaBIMCgR0ZWFtGAEgASgFIh4KClBsYXll",
             "ckluZm8SEAoIcGxheWVySUQYASABKAUiUAoIU3luY0luZm8SRAoKcGxheWVy",
             "SW5mbxgBIAEoCzIwLmNvbS5jb29sZmlzaC5ob3RmaXJlLnByb3RvY29sLmJh",
-            "dHRsZS5QbGF5ZXJJbmZvIh4KCkJlZ2luTWF0Y2gSEAoIcGxheWVySUQYASAB",
-            "KAUiHwoLQ2FuY2VsTWF0Y2gSEAoIcGxheWVySUQYASABKAUiIwoKQ3JlYXRl",
-            "Um9vbRIVCg1vd25lclBsYXllcklEGAEgASgFQjIKJGNvbS5jb29sZmlzaC5o",
-            "b3RmaXJlLnByb3RvY29sLmJhdHRsZVABqgIHbWVzc2FnZWIGcHJvdG8z"));
+            "dHRsZS5QbGF5ZXJJbmZvIh4KCkNfSm9pblJvb20SEAoIcGxheWVySUQYASAB",
+            "KAVCMgokY29tLmNvb2xmaXNoLmhvdGZpcmUucHJvdG9jb2wuYmF0dGxlUAGq",
+            "AgdtZXNzYWdlYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::message.CSP_JoinMatch), global::message.CSP_JoinMatch.Parser, new[]{ "Team" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::message.PlayerInfo), global::message.PlayerInfo.Parser, new[]{ "PlayerID" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::message.SyncInfo), global::message.SyncInfo.Parser, new[]{ "PlayerInfo" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::message.BeginMatch), global::message.BeginMatch.Parser, new[]{ "PlayerID" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::message.CancelMatch), global::message.CancelMatch.Parser, new[]{ "PlayerID" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::message.CreateRoom), global::message.CreateRoom.Parser, new[]{ "OwnerPlayerID" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::message.C_JoinRoom), global::message.C_JoinRoom.Parser, new[]{ "PlayerID" }, null, null, null, null)
           }));
     }
     #endregion
@@ -440,11 +437,11 @@ namespace message {
 
   }
 
-  public sealed partial class BeginMatch : pb::IMessage<BeginMatch> {
-    private static readonly pb::MessageParser<BeginMatch> _parser = new pb::MessageParser<BeginMatch>(() => new BeginMatch());
+  public sealed partial class C_JoinRoom : pb::IMessage<C_JoinRoom> {
+    private static readonly pb::MessageParser<C_JoinRoom> _parser = new pb::MessageParser<C_JoinRoom>(() => new C_JoinRoom());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<BeginMatch> Parser { get { return _parser; } }
+    public static pb::MessageParser<C_JoinRoom> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
@@ -457,21 +454,21 @@ namespace message {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public BeginMatch() {
+    public C_JoinRoom() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public BeginMatch(BeginMatch other) : this() {
+    public C_JoinRoom(C_JoinRoom other) : this() {
       playerID_ = other.playerID_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public BeginMatch Clone() {
-      return new BeginMatch(this);
+    public C_JoinRoom Clone() {
+      return new C_JoinRoom(this);
     }
 
     /// <summary>Field number for the "playerID" field.</summary>
@@ -487,11 +484,11 @@ namespace message {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as BeginMatch);
+      return Equals(other as C_JoinRoom);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(BeginMatch other) {
+    public bool Equals(C_JoinRoom other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -541,7 +538,7 @@ namespace message {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(BeginMatch other) {
+    public void MergeFrom(C_JoinRoom other) {
       if (other == null) {
         return;
       }
@@ -561,264 +558,6 @@ namespace message {
             break;
           case 8: {
             PlayerID = input.ReadInt32();
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
-  public sealed partial class CancelMatch : pb::IMessage<CancelMatch> {
-    private static readonly pb::MessageParser<CancelMatch> _parser = new pb::MessageParser<CancelMatch>(() => new CancelMatch());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<CancelMatch> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::message.HallReflection.Descriptor.MessageTypes[4]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public CancelMatch() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public CancelMatch(CancelMatch other) : this() {
-      playerID_ = other.playerID_;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public CancelMatch Clone() {
-      return new CancelMatch(this);
-    }
-
-    /// <summary>Field number for the "playerID" field.</summary>
-    public const int PlayerIDFieldNumber = 1;
-    private int playerID_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int PlayerID {
-      get { return playerID_; }
-      set {
-        playerID_ = value;
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as CancelMatch);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(CancelMatch other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (PlayerID != other.PlayerID) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (PlayerID != 0) hash ^= PlayerID.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (PlayerID != 0) {
-        output.WriteRawTag(8);
-        output.WriteInt32(PlayerID);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (PlayerID != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(PlayerID);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(CancelMatch other) {
-      if (other == null) {
-        return;
-      }
-      if (other.PlayerID != 0) {
-        PlayerID = other.PlayerID;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 8: {
-            PlayerID = input.ReadInt32();
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
-  public sealed partial class CreateRoom : pb::IMessage<CreateRoom> {
-    private static readonly pb::MessageParser<CreateRoom> _parser = new pb::MessageParser<CreateRoom>(() => new CreateRoom());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<CreateRoom> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::message.HallReflection.Descriptor.MessageTypes[5]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public CreateRoom() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public CreateRoom(CreateRoom other) : this() {
-      ownerPlayerID_ = other.ownerPlayerID_;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public CreateRoom Clone() {
-      return new CreateRoom(this);
-    }
-
-    /// <summary>Field number for the "ownerPlayerID" field.</summary>
-    public const int OwnerPlayerIDFieldNumber = 1;
-    private int ownerPlayerID_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int OwnerPlayerID {
-      get { return ownerPlayerID_; }
-      set {
-        ownerPlayerID_ = value;
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as CreateRoom);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(CreateRoom other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (OwnerPlayerID != other.OwnerPlayerID) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (OwnerPlayerID != 0) hash ^= OwnerPlayerID.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (OwnerPlayerID != 0) {
-        output.WriteRawTag(8);
-        output.WriteInt32(OwnerPlayerID);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (OwnerPlayerID != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(OwnerPlayerID);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(CreateRoom other) {
-      if (other == null) {
-        return;
-      }
-      if (other.OwnerPlayerID != 0) {
-        OwnerPlayerID = other.OwnerPlayerID;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 8: {
-            OwnerPlayerID = input.ReadInt32();
             break;
           }
         }

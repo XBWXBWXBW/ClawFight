@@ -52,8 +52,46 @@ public class TcpConnect : ConnectBase
             IMessage m = MessageCreater.CreateMessage((EMessageType)rawMessage.MessageType);
             m.MergeFrom(cis_body);
             GameManager.instance.connectProxy.ReceiveProto((EMessageType)rawMessage.MessageType, m);
-
             tcpSocket.BeginReceive(bytes, 0, bytes.Length, SocketFlags.None, EndReceive, tcpSocket);
+        }
+        catch {
+
+        }
+    }
+
+    public void SendMessage(EMessageType messageType, IMessage message)
+    {
+        try
+        {
+            RawMessage rawMessage = new RawMessage();
+            rawMessage.MessageType = (int)messageType;
+            using (MemoryStream ms_body = new MemoryStream()) {
+                using (CodedOutputStream cos_body = new CodedOutputStream(ms_body)) {
+                    message.WriteTo(cos_body);
+                    cos_body.Flush();
+                    ms_body.Position = 0;
+                    ByteString bs = ByteString.FromStream(ms_body);
+                    rawMessage.MessageBody = bs;
+                }
+            }
+            using (MemoryStream ms_raw = new MemoryStream()) {
+                using (CodedOutputStream cos_raw = new CodedOutputStream(ms_raw)) {
+                    rawMessage.WriteTo(cos_raw);
+                    cos_raw.Flush();
+                    byte[] buffer = ms_raw.GetBuffer();
+                    tcpSocket.BeginSend(buffer, 0, (int)ms_raw.Position, SocketFlags.None, EndSend, null);
+                }
+            }
+        }
+        catch {
+
+        }
+    }
+    void EndSend(IAsyncResult ia)
+    {
+        try
+        {
+            tcpSocket.EndSend(ia);
         }
         catch {
 

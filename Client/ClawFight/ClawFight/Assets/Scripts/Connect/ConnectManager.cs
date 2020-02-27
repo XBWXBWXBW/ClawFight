@@ -14,8 +14,4 @@ public class ConnectManager : ManagerBase<ConnectManager>
                 break;
         }
     }
-    public void Connect() {
-        TcpConnect tcpConnect = new TcpConnect();
-        tcpConnect.Start();
-    }
 }

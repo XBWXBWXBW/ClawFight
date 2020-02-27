@@ -12,11 +12,10 @@ namespace ClawFight
         private Dictionary<int, Player> playerDict = new Dictionary<int, Player>();
         private int maxID = 0;
 
-        public Player AddPlayer(Socket _socket) {
+        public Player AddPlayer() {
             maxID++;
             PlayerData pd = new PlayerData()
             {
-                socket = _socket,
                 ID = maxID,
             };
             Player p = new Player()
@@ -24,7 +23,6 @@ namespace ClawFight
                 playerData = pd,
             };
             playerDict.Add(maxID, p);
-            p.Init();
             return p;
         }
     }

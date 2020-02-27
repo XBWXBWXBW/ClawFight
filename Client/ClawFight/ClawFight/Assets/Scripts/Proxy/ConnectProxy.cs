@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class ConnectProxy : ProxyBase
 {
+    TcpConnect tcpConnect;
     public void Connected() {
         GameManager.instance.tasks.Add(_Connected());
     }
@@ -18,5 +19,13 @@ public class ConnectProxy : ProxyBase
     private IEnumerator _ReceiveProto(EMessageType messageType, IMessage message) {
         yield return null;
         EventManager.instance.SendProto(messageType, message);
+    }
+    public void Connect()
+    {
+        tcpConnect = new TcpConnect();
+        tcpConnect.Start();
+    }
+    public void SendMessage(EMessageType messageType, IMessage message) {
+        tcpConnect.SendMessage(messageType, message);
     }
 }

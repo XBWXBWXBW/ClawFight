@@ -63,6 +63,7 @@
     <Compile Include="Assets\Scripts\Connect\ConnectBase.cs" />
     <Compile Include="Assets\Scripts\Connect\ConnectManager.cs" />
     <Compile Include="Assets\Scripts\Connect\TcpConnect.cs" />
+    <Compile Include="Assets\Scripts\Enum\AllEnums.cs" />
     <Compile Include="Assets\Scripts\Event\AllEvents.cs" />
     <Compile Include="Assets\Scripts\Event\EventManager.cs" />
     <Compile Include="Assets\Scripts\Game\GameManager.cs" />
@@ -83,6 +84,7 @@
     <Compile Include="Assets\Scripts\View\NavigationView.cs" />
     <Compile Include="Assets\Scripts\View\RoomView.cs" />
     <Compile Include="Assets\Scripts\View\ViewBase.cs" />
+    <Compile Include="Assets\Scripts\View\ViewManager.cs" />
     <None Include="Assets\Plugin\Google_Protobuf\Google.Protobuf.xml" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>D:/Mine/Project/Unity_Project/ClawFight1/Client/ClawFight/ClawFight/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>

@@ -4,4 +4,5 @@ using UnityEngine;
 
 public class ViewBase : MonoBehaviour
 {
+    public EViewType viewType = EViewType.HomeView;
 }
