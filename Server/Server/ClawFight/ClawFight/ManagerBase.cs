@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace ClawFight
 {
-    class ManagerBase<T> where T : ManagerBase<T> ,new()
+    public interface IManager
+    {
+        void OnDestroy();
+        void Init();
+    }
+    class ManagerBase<T> : IManager where T : ManagerBase<T> ,new()
     {
         private static T _instance;
         public static T instance {
@@ -17,5 +22,7 @@ namespace ClawFight
                 return _instance;
             }
         }
+        public virtual void Init() { }
+        public virtual void OnDestroy() { }
     }
 }

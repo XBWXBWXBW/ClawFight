@@ -71,6 +71,9 @@ namespace ClawFight
                 IMessage messageBody = MessageCreater.CreateMessage((EMessageType)rawMessage.MessageType);
                 messageBody.MergeFrom(cis_body);
 
+                //通知收到了这个协议
+                EventManager.instance.SendProto((EMessageType)rawMessage.MessageType, messageBody);
+
                 foreach (var e in player_socket_dict) {
                     if (e.Value == pClientSocket) {
                         Console.WriteLine("Receive : playerID " +e.Key.playerData.ID+"  messageType: "+ (EMessageType)rawMessage.MessageType);
