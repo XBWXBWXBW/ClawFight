@@ -93,7 +93,6 @@ namespace ProtoGen
 
             string template = @"using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 public class MessageCreater
 {
