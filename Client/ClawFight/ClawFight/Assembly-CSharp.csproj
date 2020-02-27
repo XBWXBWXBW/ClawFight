@@ -81,6 +81,7 @@
     <Compile Include="Assets\Scripts\Proxy\ProxyBase.cs" />
     <Compile Include="Assets\Scripts\View\HomeView.cs" />
     <Compile Include="Assets\Scripts\View\NavigationView.cs" />
+    <Compile Include="Assets\Scripts\View\RoomView.cs" />
     <Compile Include="Assets\Scripts\View\ViewBase.cs" />
     <None Include="Assets\Plugin\Google_Protobuf\Google.Protobuf.xml" />
     <Reference Include="Unity.TextMeshPro.Editor">
