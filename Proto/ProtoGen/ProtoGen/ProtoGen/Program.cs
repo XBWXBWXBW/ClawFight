@@ -60,7 +60,7 @@ namespace ProtoGen
             {
                 serverDI.GetFiles()[0].Delete();
             }
-
+            Console.WriteLine("legnth "+ serverDI.GetFiles().Length);
             string csharpPath = @"csharp";
             DirectoryInfo _csharpDI = new DirectoryInfo(csharpPath);
             foreach (var fi in _csharpDI.GetFiles())
