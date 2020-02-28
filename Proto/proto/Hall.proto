@@ -41,3 +41,11 @@ message SCP_JoinTeam{
 	int32 playerID = 1;
 	int32 team = 2;
 }
+
+message CSP_ReadyToPlay{
+	int32 playerID = 1;
+}
+
+message SCP_ReadyToPlay{
+	
+}

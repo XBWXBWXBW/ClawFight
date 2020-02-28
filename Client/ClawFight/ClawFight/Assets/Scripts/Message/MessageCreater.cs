@@ -30,6 +30,12 @@ case EMessageType.CSP_JoinTeam:
 case EMessageType.SCP_JoinTeam:
                 message = new message.SCP_JoinTeam();
                 break;
+case EMessageType.CSP_ReadyToPlay:
+                message = new message.CSP_ReadyToPlay();
+                break;
+case EMessageType.SCP_ReadyToPlay:
+                message = new message.SCP_ReadyToPlay();
+                break;
 
         }
         return message;
