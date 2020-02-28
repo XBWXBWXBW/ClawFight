@@ -1,0 +1,265 @@
+fileFormatVersion: 2
+guid: cfddd8d9dedddf7498565d2d0782c152
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Aallen_LOD1
+    100002: Aallen_LOD2
+    100004: //RootNode
+    100006: Bip003
+    100008: Bip003 Head
+    100010: Bip003 HeadNub
+    100012: Bip003 L Calf
+    100014: Bip003 L Clavicle
+    100016: Bip003 L Finger0
+    100018: Bip003 L Finger01
+    100020: Bip003 L Finger0Nub
+    100022: Bip003 L Finger1
+    100024: Bip003 L Finger11
+    100026: Bip003 L Finger1Nub
+    100028: Bip003 L Finger2
+    100030: Bip003 L Finger21
+    100032: Bip003 L Finger2Nub
+    100034: Bip003 L Foot
+    100036: Bip003 L Forearm
+    100038: Bip003 L Hand
+    100040: Bip003 L Thigh
+    100042: Bip003 L Toe0
+    100044: Bip003 L Toe0Nub
+    100046: Bip003 L UpperArm
+    100048: Bip003 left wrist
+    100050: Bip003 Neck
+    100052: Bip003 Pelvis
+    100054: Bip003 R Calf
+    100056: Bip003 R Clavicle
+    100058: Bip003 R Finger0
+    100060: Bip003 R Finger01
+    100062: Bip003 R Finger0Nub
+    100064: Bip003 R Finger1
+    100066: Bip003 R Finger11
+    100068: Bip003 R Finger1Nub
+    100070: Bip003 R Finger2
+    100072: Bip003 R Finger21
+    100074: Bip003 R Finger2Nub
+    100076: Bip003 R Foot
+    100078: Bip003 R Forearm
+    100080: Bip003 R Hand
+    100082: Bip003 R Thigh
+    100084: Bip003 R Toe0
+    100086: Bip003 R Toe0Nub
+    100088: Bip003 R UpperArm
+    100090: Bip003 right wrist
+    100092: Bip003 Spine
+    100094: Bip003 Spine1
+    100096: Bip003 Xtra01Nub
+    100098: Bip003 Xtra01OppNub
+    100100: Box_breech
+    100102: Box_Calf_left
+    100104: Box_Calf_right
+    100106: Box_chest
+    100108: Box_Forearm_left
+    100110: Box_Forearm_right
+    100112: Box_head
+    100114: Box_Thigh_left
+    100116: Box_Thigh_right
+    100118: Box_UpperArm_left
+    100120: Box_UpperArm_right
+    100122: Box_waist
+    100124: FirstWeaponAttach
+    100126: SecondWeaponAttach
+    100128: Weapon
+    400000: Aallen_LOD1
+    400002: Aallen_LOD2
+    400004: //RootNode
+    400006: Bip003
+    400008: Bip003 Head
+    400010: Bip003 HeadNub
+    400012: Bip003 L Calf
+    400014: Bip003 L Clavicle
+    400016: Bip003 L Finger0
+    400018: Bip003 L Finger01
+    400020: Bip003 L Finger0Nub
+    400022: Bip003 L Finger1
+    400024: Bip003 L Finger11
+    400026: Bip003 L Finger1Nub
+    400028: Bip003 L Finger2
+    400030: Bip003 L Finger21
+    400032: Bip003 L Finger2Nub
+    400034: Bip003 L Foot
+    400036: Bip003 L Forearm
+    400038: Bip003 L Hand
+    400040: Bip003 L Thigh
+    400042: Bip003 L Toe0
+    400044: Bip003 L Toe0Nub
+    400046: Bip003 L UpperArm
+    400048: Bip003 left wrist
+    400050: Bip003 Neck
+    400052: Bip003 Pelvis
+    400054: Bip003 R Calf
+    400056: Bip003 R Clavicle
+    400058: Bip003 R Finger0
+    400060: Bip003 R Finger01
+    400062: Bip003 R Finger0Nub
+    400064: Bip003 R Finger1
+    400066: Bip003 R Finger11
+    400068: Bip003 R Finger1Nub
+    400070: Bip003 R Finger2
+    400072: Bip003 R Finger21
+    400074: Bip003 R Finger2Nub
+    400076: Bip003 R Foot
+    400078: Bip003 R Forearm
+    400080: Bip003 R Hand
+    400082: Bip003 R Thigh
+    400084: Bip003 R Toe0
+    400086: Bip003 R Toe0Nub
+    400088: Bip003 R UpperArm
+    400090: Bip003 right wrist
+    400092: Bip003 Spine
+    400094: Bip003 Spine1
+    400096: Bip003 Xtra01Nub
+    400098: Bip003 Xtra01OppNub
+    400100: Box_breech
+    400102: Box_Calf_left
+    400104: Box_Calf_right
+    400106: Box_chest
+    400108: Box_Forearm_left
+    400110: Box_Forearm_right
+    400112: Box_head
+    400114: Box_Thigh_left
+    400116: Box_Thigh_right
+    400118: Box_UpperArm_left
+    400120: Box_UpperArm_right
+    400122: Box_waist
+    400124: FirstWeaponAttach
+    400126: SecondWeaponAttach
+    400128: Weapon
+    2100000: No Name
+    2100002: Aallen
+    2300000: Box_breech
+    2300002: Box_Calf_left
+    2300004: Box_Calf_right
+    2300006: Box_chest
+    2300008: Box_Forearm_left
+    2300010: Box_Forearm_right
+    2300012: Box_head
+    2300014: Box_Thigh_left
+    2300016: Box_Thigh_right
+    2300018: Box_UpperArm_left
+    2300020: Box_UpperArm_right
+    2300022: Box_waist
+    3300000: Box_breech
+    3300002: Box_Calf_left
+    3300004: Box_Calf_right
+    3300006: Box_chest
+    3300008: Box_Forearm_left
+    3300010: Box_Forearm_right
+    3300012: Box_head
+    3300014: Box_Thigh_left
+    3300016: Box_Thigh_right
+    3300018: Box_UpperArm_left
+    3300020: Box_UpperArm_right
+    3300022: Box_waist
+    4300000: Box_Calf_left
+    4300002: Box_Thigh_left
+    4300004: Box_Calf_right
+    4300006: Box_Thigh_right
+    4300008: Box_breech
+    4300010: Box_head
+    4300012: Box_chest
+    4300014: Box_Forearm_left
+    4300016: Box_UpperArm_left
+    4300018: Box_Forearm_right
+    4300020: Box_UpperArm_right
+    4300022: Box_waist
+    4300024: Aallen_LOD1
+    4300026: Aallen_LOD2
+    9500000: //RootNode
+    13700000: Aallen_LOD1
+    13700002: Aallen_LOD2
+    2186277476908879412: ImportLogs
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

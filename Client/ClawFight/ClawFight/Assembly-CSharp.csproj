@@ -74,9 +74,12 @@
     <Compile Include="Assets\Scripts\Message\MessageCreater.cs" />
     <Compile Include="Assets\Scripts\Player\Entity.cs" />
     <Compile Include="Assets\Scripts\Player\EntityData.cs" />
+    <Compile Include="Assets\Scripts\Player\EntityMonoBase.cs" />
+    <Compile Include="Assets\Scripts\Player\LocalPlayer.cs" />
     <Compile Include="Assets\Scripts\Player\Player.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerData.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerManager.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerMonoBase.cs" />
     <Compile Include="Assets\Scripts\Proxy\ConnectProxy.cs" />
     <Compile Include="Assets\Scripts\Proxy\MatchProxy.cs" />
     <Compile Include="Assets\Scripts\Proxy\ProxyBase.cs" />

@@ -414,11 +414,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cc67d079b7e8f147a44b8630a6db7f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isQuickEnter: 0
   canvas: {fileID: 1154431559}
   donotDestroy:
   - {fileID: 534669902}
   - {fileID: 1154431559}
   - {fileID: 1745947841}
+  - {fileID: 271629012}
   mapPathList:
   - Scenes/Map1
 --- !u!4 &271629014

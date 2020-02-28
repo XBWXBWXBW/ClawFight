@@ -8,6 +8,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public bool isQuickEnter = false;
     public GameObject canvas;
     public List<GameObject> donotDestroy = new List<GameObject>();
     public List<string> mapPathList = new List<string>();
@@ -31,6 +32,11 @@ public class GameManager : MonoBehaviour
 
         for (int i = 0; i < donotDestroy.Count; i++) {
             GameManager.DontDestroyOnLoad(donotDestroy[i]);
+        }
+
+        if (isQuickEnter)
+        {
+            SceneManager.LoadScene(mapPathList[0]);
         }
     }
     private void OnEnable()
