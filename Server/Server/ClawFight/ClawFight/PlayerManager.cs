@@ -49,7 +49,10 @@ namespace ClawFight
                     pd.isReady = true;
 
                     SCP_ReadyToPlay _msg = new SCP_ReadyToPlay();
-                    ConnectManager.instance.tcpConnect.SendMessage(p, _msg, (int)EMessageType.SCP_ReadyToPlay);
+                    _msg.PlayerID = _id;
+                    foreach (var e in playerDict) {
+                        ConnectManager.instance.tcpConnect.SendMessage(e.Value, _msg, (int)EMessageType.SCP_ReadyToPlay);
+                    }
                 }
             }
         }
@@ -74,18 +77,23 @@ namespace ClawFight
         {
             //只给刚登陆的player发送
             SyncInfo si = new SyncInfo();
-            PlayerInfo pi = new PlayerInfo();
-            pi.PlayerID = obj;
-            pi.Team = (int)playerDict[obj].playerData.team;
+            PlayerInfo pi = new PlayerInfo() {
+                PlayerID = obj,
+                Team = (int)playerDict[obj].playerData.team,
+                IsReadyToPlay = playerDict[obj].playerData.isReady,
+            };
             si.MainPlayerInfo = pi;
 
             Player cur = null;
             foreach (var e in playerDict) {
                 if (e.Key != obj)
                 {
-                    PlayerInfo _other = new PlayerInfo();
-                    _other.PlayerID = e.Key;
-                    _other.Team = (int)playerDict[e.Key].playerData.team;
+                    PlayerInfo _other = new PlayerInfo()
+                    {
+                        PlayerID = e.Key,
+                        Team = (int)playerDict[e.Key].playerData.team,
+                        IsReadyToPlay = playerDict[e.Key].playerData.isReady,
+                    };
                     if (playerInRoom.ContainsKey(e.Key))
                     {
                         _other.IsInRoom = true;

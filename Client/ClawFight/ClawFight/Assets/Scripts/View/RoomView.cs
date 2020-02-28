@@ -11,7 +11,7 @@ public class RoomView : ViewBase
     public Text infoText;
     public GameObject teamAButton, teamBButton;
     StringBuilder sb = new StringBuilder();
-    const string formatString = "PlayerID: {0}  PlayerTeam: {1}";
+    const string formatString = "PlayerID: {0}  PlayerTeam: {1}  IsReady: {2}";
     const string teamA = "TeamA", teamB = "TeamB", none = "NoTeam";
     // Start is called before the first frame update
     void Start()
@@ -28,11 +28,20 @@ public class RoomView : ViewBase
     {
         EventManager.instance.RegistEvent(HallEvents.HALLEVENT_OTHER_PLAYER_IN_ROOM, OnPlayerJoinRoom);
         EventManager.instance.RegistEvent(HallEvents.HALLEVENT_PLAYER_JOIN_TEAM, OnPlayerJoinTeam);
+        EventManager.instance.RegistEvent(HallEvents.HALLEVENT_PLAYER_READY_TO_PLAY, OnPlayerReadyToPlay);
     }
     private void OnDisable()
     {
         EventManager.instance.UnRegistEvent(HallEvents.HALLEVENT_OTHER_PLAYER_IN_ROOM, OnPlayerJoinRoom);
         EventManager.instance.UnRegistEvent(HallEvents.HALLEVENT_PLAYER_JOIN_TEAM, OnPlayerJoinTeam);
+        EventManager.instance.UnRegistEvent(HallEvents.HALLEVENT_PLAYER_READY_TO_PLAY, OnPlayerReadyToPlay);
+    }
+
+    private void OnPlayerReadyToPlay()
+    {
+        UpdateInfo();
+        teamAButton.SetActive(false);
+        teamBButton.SetActive(false);
     }
 
     private void OnPlayerJoinTeam()
@@ -49,15 +58,15 @@ public class RoomView : ViewBase
         PlayerData mainPlayerData = PlayerManager.instance.mainPlayer.playerData;
         if (mainPlayerData.eTeam == ETeam.None)
         {
-            sb.Append(string.Format(formatString, "Self", none));
+            sb.Append(string.Format(formatString, "Self", none, mainPlayerData.isReady));
         }
         else if (mainPlayerData.eTeam == ETeam.TeamA)
         {
-            sb.Append(string.Format(formatString, "Self", teamA));
+            sb.Append(string.Format(formatString, "Self", teamA, mainPlayerData.isReady));
         }
         else
         {
-            sb.Append(string.Format(formatString, "Self", teamB));
+            sb.Append(string.Format(formatString, "Self", teamB, mainPlayerData.isReady));
         }
         sb.Append('\n');
 
@@ -70,15 +79,15 @@ public class RoomView : ViewBase
             }
             if (pd.eTeam == ETeam.None)
             {
-                sb.Append(string.Format(formatString, pd.ID, none));
+                sb.Append(string.Format(formatString, pd.ID, none, pd.isReady));
             }
             else if (pd.eTeam == ETeam.TeamA)
             {
-                sb.Append(string.Format(formatString, pd.ID, teamA));
+                sb.Append(string.Format(formatString, pd.ID, teamA, pd.isReady));
             }
             else
             {
-                sb.Append(string.Format(formatString, pd.ID, teamB));
+                sb.Append(string.Format(formatString, pd.ID, teamB, pd.isReady));
             }
             sb.Append('\n');
         }
@@ -102,8 +111,7 @@ public class RoomView : ViewBase
         if (pd.eTeam == ETeam.None) {
             return;
         }
-        teamAButton.SetActive(false);
-        teamBButton.SetActive(false);
+        
         CSP_ReadyToPlay msg = new CSP_ReadyToPlay();
         msg.PlayerID = pd.ID;
         GameManager.instance.connectProxy.SendMessage(EMessageType.CSP_ReadyToPlay, msg);

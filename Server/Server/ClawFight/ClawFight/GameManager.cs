@@ -24,7 +24,7 @@ namespace ClawFight
             foreach (var e in PlayerManager.instance.GetPlayerInRoom()) {
                 if (e.Value.playerData.isReady) _curCount++;
             }
-            if (_curCount > START_COUNT) return false;
+            if (_curCount > START_COUNT - 1) return false;
             return true;
         }
     }

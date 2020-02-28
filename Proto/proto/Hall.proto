@@ -48,5 +48,9 @@ message CSP_ReadyToPlay{
 }
 
 message SCP_ReadyToPlay{
+	int32 playerID = 1;
+}
+
+message SCP_EnterPlay{
 	
 }

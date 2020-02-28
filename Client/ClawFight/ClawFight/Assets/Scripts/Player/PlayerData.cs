@@ -7,4 +7,5 @@ public class PlayerData : EntityData
     public ETeam eTeam = ETeam.None;
     public bool isMainPlayer = false;
     public bool isInRoom = false;
+    public bool isReady = false;
 }

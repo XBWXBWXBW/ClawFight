@@ -30,8 +30,14 @@ public class PlayerManager : ManagerBase<PlayerManager>
 
     private void OnPlayerReadyToPlay(IMessage obj)
     {
-        EventManager.instance.SendEvent(HallEvents.HALLEVENT_PLAYER_READY_TO_PLAY);
-        Debug.LogError("XBW  ready to play");
+        SCP_ReadyToPlay msg = obj as SCP_ReadyToPlay;
+        int _id = msg.PlayerID;
+        if (playerInRoom_Dict.ContainsKey(_id)) {
+            playerInRoom_Dict[_id].playerData.isReady = true;
+        }
+        if (playerDict[_id].playerData.isReady) {
+            EventManager.instance.SendEvent(HallEvents.HALLEVENT_PLAYER_READY_TO_PLAY);
+        }
     }
 
     private void OnPlayerJoinTeam(IMessage obj)
@@ -80,6 +86,7 @@ public class PlayerManager : ManagerBase<PlayerManager>
             isMainPlayer = true,
             isInRoom = mainPlayerInfo.IsInRoom,
             eTeam = (ETeam)mainPlayerInfo.Team,
+            isReady = mainPlayerInfo.IsReadyToPlay,
         };
         Player p = new Player(pd);
         AddPlayer(p);
@@ -96,6 +103,7 @@ public class PlayerManager : ManagerBase<PlayerManager>
                 isMainPlayer = false,
                 isInRoom = _otherInfo.IsInRoom,
                 eTeam = (ETeam)_otherInfo.Team,
+                isReady = _otherInfo.IsReadyToPlay,
             };
             Player _otherPlayer = new Player(_otherData);
             AddPlayer(_otherPlayer);

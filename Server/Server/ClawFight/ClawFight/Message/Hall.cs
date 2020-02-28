@@ -36,9 +36,9 @@ namespace message {
             "X0pvaW5HYW1lEhAKCHBsYXllcklEGAEgASgFIi4KDENTUF9Kb2luVGVhbRIQ",
             "CghwbGF5ZXJJRBgBIAEoBRIMCgR0ZWFtGAIgASgFIi4KDFNDUF9Kb2luVGVh",
             "bRIQCghwbGF5ZXJJRBgBIAEoBRIMCgR0ZWFtGAIgASgFIiMKD0NTUF9SZWFk",
-            "eVRvUGxheRIQCghwbGF5ZXJJRBgBIAEoBSIRCg9TQ1BfUmVhZHlUb1BsYXlC",
-            "MgokY29tLmNvb2xmaXNoLmhvdGZpcmUucHJvdG9jb2wuYmF0dGxlUAGqAgdt",
-            "ZXNzYWdlYgZwcm90bzM="));
+            "eVRvUGxheRIQCghwbGF5ZXJJRBgBIAEoBSIjCg9TQ1BfUmVhZHlUb1BsYXkS",
+            "EAoIcGxheWVySUQYASABKAVCMgokY29tLmNvb2xmaXNoLmhvdGZpcmUucHJv",
+            "dG9jb2wuYmF0dGxlUAGqAgdtZXNzYWdlYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -51,7 +51,7 @@ namespace message {
             new pbr::GeneratedClrTypeInfo(typeof(global::message.CSP_JoinTeam), global::message.CSP_JoinTeam.Parser, new[]{ "PlayerID", "Team" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::message.SCP_JoinTeam), global::message.SCP_JoinTeam.Parser, new[]{ "PlayerID", "Team" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::message.CSP_ReadyToPlay), global::message.CSP_ReadyToPlay.Parser, new[]{ "PlayerID" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::message.SCP_ReadyToPlay), global::message.SCP_ReadyToPlay.Parser, null, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::message.SCP_ReadyToPlay), global::message.SCP_ReadyToPlay.Parser, new[]{ "PlayerID" }, null, null, null, null)
           }));
     }
     #endregion
@@ -1410,12 +1410,24 @@ namespace message {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public SCP_ReadyToPlay(SCP_ReadyToPlay other) : this() {
+      playerID_ = other.playerID_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public SCP_ReadyToPlay Clone() {
       return new SCP_ReadyToPlay(this);
+    }
+
+    /// <summary>Field number for the "playerID" field.</summary>
+    public const int PlayerIDFieldNumber = 1;
+    private int playerID_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int PlayerID {
+      get { return playerID_; }
+      set {
+        playerID_ = value;
+      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1431,12 +1443,14 @@ namespace message {
       if (ReferenceEquals(other, this)) {
         return true;
       }
+      if (PlayerID != other.PlayerID) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
+      if (PlayerID != 0) hash ^= PlayerID.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1450,6 +1464,10 @@ namespace message {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
+      if (PlayerID != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(PlayerID);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1458,6 +1476,9 @@ namespace message {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
+      if (PlayerID != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(PlayerID);
+      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -1468,6 +1489,9 @@ namespace message {
     public void MergeFrom(SCP_ReadyToPlay other) {
       if (other == null) {
         return;
+      }
+      if (other.PlayerID != 0) {
+        PlayerID = other.PlayerID;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -1480,6 +1504,10 @@ namespace message {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
+          case 8: {
+            PlayerID = input.ReadInt32();
+            break;
+          }
         }
       }
     }
