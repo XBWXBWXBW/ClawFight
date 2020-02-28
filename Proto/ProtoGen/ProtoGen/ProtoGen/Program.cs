@@ -65,12 +65,10 @@ namespace ProtoGen
             foreach (var fi in _csharpDI.GetFiles())
             {
                 string cDst = string.Format(@"{0}\{1}", clientPath, fi.Name);
-                File.Create(cDst);
-                fi.CopyTo(cDst, true);
+                File.Copy(fi.FullName, cDst);
 
                 string sDst = string.Format(@"{0}\{1}", serverPath, fi.Name);
-                File.Create(sDst);
-                fi.CopyTo(sDst, true);
+                File.Copy(fi.FullName, sDst);
             }
         }
         private static void AddMessageType() {
