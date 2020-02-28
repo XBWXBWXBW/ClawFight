@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,11 +16,25 @@ public class ViewManager : ManagerBase<ViewManager>
         {
             viewDict.Add(_v[i].viewType, _v[i]);
         }
+
+        EventManager.instance.RegistEvent(HallEvents.HALLEVENT_ENTER_PLAY, OnEnterPlay);
     }
     public override void OnDestroy()
     {
+        EventManager.instance.UnRegistEvent(HallEvents.HALLEVENT_ENTER_PLAY, OnEnterPlay);
         base.OnDestroy();
     }
+
+    private void OnEnterPlay()
+    {
+        foreach (var e in viewDict) {
+            if (e.Value.isHall)
+            {
+                e.Value.gameObject.SetActive(false);
+            }
+        }
+    }
+
     public ViewBase GetView(EViewType viewType) {
         if (viewDict.ContainsKey(viewType)) {
             return viewDict[viewType];

@@ -42,7 +42,7 @@ namespace ClawFight
         {
             CSP_ReadyToPlay msg = obj as CSP_ReadyToPlay;
             int _id = msg.PlayerID;
-            if (GameManager.instance.CanEnterPlay()) {
+            if (GameManager.instance.CanEnterReady()) {
                 if (playerDict.ContainsKey(_id)) {
                     Player p = playerDict[_id];
                     PlayerData pd = p.playerData;
@@ -54,6 +54,8 @@ namespace ClawFight
                         ConnectManager.instance.tcpConnect.SendMessage(e.Value, _msg, (int)EMessageType.SCP_ReadyToPlay);
                     }
                 }
+            }
+            if (GameManager.instance.CanEnterPlay()) {
                 GameManager.instance.PlayStart();
             }
         }
@@ -62,6 +64,7 @@ namespace ClawFight
                 Player p = e.Value;
                 PlayerData pd = p.playerData;
                 SCP_EnterPlay msg = new SCP_EnterPlay();
+                msg.MapID = GameManager.instance.mapID;
                 if (pd.isReady) {
                     ConnectManager.instance.tcpConnect.SendMessage(p, msg, (int)EMessageType.SCP_EnterPlay);
                 }
