@@ -19,6 +19,7 @@ namespace ClawFight
         {
             base.Init();
             EventManager.instance.RegistProto(EMessageType.CSP_JoinRoom, OnOtherJoinRoom);
+            EventManager.instance.RegistProto(EMessageType.CSP_JoinTeam, OnJoinTeam);
             EventManager.instance.RegistEventT<int>(AllEvents.PLAYER_JOIN_GAME, OnPlayerJoinGame);
             EventManager.instance.RegistEventT<int>(AllEvents.SYNC_INFO, OnSyncInfo);
         }
@@ -26,8 +27,26 @@ namespace ClawFight
         {
             base.OnDestroy();
             EventManager.instance.UnRegistProto(EMessageType.CSP_JoinRoom, OnOtherJoinRoom);
+            EventManager.instance.UnRegistProto(EMessageType.CSP_JoinTeam, OnJoinTeam);
             EventManager.instance.UnRegistEventT<int>(AllEvents.PLAYER_JOIN_GAME, OnPlayerJoinGame);
             EventManager.instance.UnRegistEventT<int>(AllEvents.SYNC_INFO, OnSyncInfo);
+        }
+
+        private void OnJoinTeam(IMessage obj)
+        {
+            CSP_JoinTeam msg = obj as CSP_JoinTeam;
+            int _id = msg.PlayerID;
+            ETeam team = (ETeam)msg.Team;
+            if (playerDict.ContainsKey(_id)) {
+                playerDict[_id].playerData.team = team;
+            }
+
+            SCP_JoinTeam _msg = new SCP_JoinTeam();
+            _msg.PlayerID = _id;
+            _msg.Team = msg.Team;
+            foreach (var e in playerDict) {
+                ConnectManager.instance.tcpConnect.SendMessage(e.Value, _msg, (int)EMessageType.SCP_JoinTeam);
+            }
         }
 
         private void OnSyncInfo(int obj)

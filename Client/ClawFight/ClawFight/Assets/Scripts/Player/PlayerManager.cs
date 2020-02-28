@@ -14,15 +14,28 @@ public class PlayerManager : ManagerBase<PlayerManager>
     {
         GameManager.instance.AddManager(this);
         EventManager.instance.RegistProto(EMessageType.SyncInfo, OnSyncInfo);
-
         EventManager.instance.RegistProto(EMessageType.SCP_JoinRoom, OnPlayerJoinRoom);
         EventManager.instance.RegistProto(EMessageType.SCP_JoinGame, OnPlayerJoinGame);
+        EventManager.instance.RegistProto(EMessageType.SCP_JoinTeam, OnPlayerJoinTeam);
     }
     public override void OnDestroy()
     {
         EventManager.instance.UnRegistProto(EMessageType.SyncInfo, OnSyncInfo);
         EventManager.instance.UnRegistProto(EMessageType.SCP_JoinRoom, OnPlayerJoinRoom);
         EventManager.instance.UnRegistProto(EMessageType.SCP_JoinGame, OnPlayerJoinGame);
+        EventManager.instance.UnRegistProto(EMessageType.SCP_JoinTeam, OnPlayerJoinTeam);
+    }
+
+    private void OnPlayerJoinTeam(IMessage obj)
+    {
+        SCP_JoinTeam msg = obj as SCP_JoinTeam;
+        int _id = msg.PlayerID;
+        ETeam team = (ETeam)msg.Team;
+        if (playerDict.ContainsKey(_id)) {
+            playerDict[_id].playerData.eTeam = team;
+
+            EventManager.instance.SendEvent(HallEvents.HALLEVENT_PLAYER_JOIN_TEAM);
+        }
     }
 
     private void OnPlayerJoinGame(IMessage obj)
