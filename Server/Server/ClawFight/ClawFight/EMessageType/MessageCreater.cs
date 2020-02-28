@@ -36,6 +36,9 @@ case EMessageType.CSP_ReadyToPlay:
 case EMessageType.SCP_ReadyToPlay:
                 message = new message.SCP_ReadyToPlay();
                 break;
+case EMessageType.SCP_EnterPlay:
+                message = new message.SCP_EnterPlay();
+                break;
 
         }
         return message;

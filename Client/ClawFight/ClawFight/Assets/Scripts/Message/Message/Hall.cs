@@ -37,8 +37,9 @@ namespace message {
             "CghwbGF5ZXJJRBgBIAEoBRIMCgR0ZWFtGAIgASgFIi4KDFNDUF9Kb2luVGVh",
             "bRIQCghwbGF5ZXJJRBgBIAEoBRIMCgR0ZWFtGAIgASgFIiMKD0NTUF9SZWFk",
             "eVRvUGxheRIQCghwbGF5ZXJJRBgBIAEoBSIjCg9TQ1BfUmVhZHlUb1BsYXkS",
-            "EAoIcGxheWVySUQYASABKAVCMgokY29tLmNvb2xmaXNoLmhvdGZpcmUucHJv",
-            "dG9jb2wuYmF0dGxlUAGqAgdtZXNzYWdlYgZwcm90bzM="));
+            "EAoIcGxheWVySUQYASABKAUiDwoNU0NQX0VudGVyUGxheUIyCiRjb20uY29v",
+            "bGZpc2guaG90ZmlyZS5wcm90b2NvbC5iYXR0bGVQAaoCB21lc3NhZ2ViBnBy",
+            "b3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -51,7 +52,8 @@ namespace message {
             new pbr::GeneratedClrTypeInfo(typeof(global::message.CSP_JoinTeam), global::message.CSP_JoinTeam.Parser, new[]{ "PlayerID", "Team" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::message.SCP_JoinTeam), global::message.SCP_JoinTeam.Parser, new[]{ "PlayerID", "Team" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::message.CSP_ReadyToPlay), global::message.CSP_ReadyToPlay.Parser, new[]{ "PlayerID" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::message.SCP_ReadyToPlay), global::message.SCP_ReadyToPlay.Parser, new[]{ "PlayerID" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::message.SCP_ReadyToPlay), global::message.SCP_ReadyToPlay.Parser, new[]{ "PlayerID" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::message.SCP_EnterPlay), global::message.SCP_EnterPlay.Parser, null, null, null, null, null)
           }));
     }
     #endregion
@@ -1508,6 +1510,107 @@ namespace message {
             PlayerID = input.ReadInt32();
             break;
           }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class SCP_EnterPlay : pb::IMessage<SCP_EnterPlay> {
+    private static readonly pb::MessageParser<SCP_EnterPlay> _parser = new pb::MessageParser<SCP_EnterPlay>(() => new SCP_EnterPlay());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<SCP_EnterPlay> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::message.HallReflection.Descriptor.MessageTypes[10]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SCP_EnterPlay() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SCP_EnterPlay(SCP_EnterPlay other) : this() {
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SCP_EnterPlay Clone() {
+      return new SCP_EnterPlay(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as SCP_EnterPlay);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(SCP_EnterPlay other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(SCP_EnterPlay other) {
+      if (other == null) {
+        return;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
         }
       }
     }
