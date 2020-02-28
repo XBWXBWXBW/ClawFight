@@ -7,3 +7,7 @@ public enum EViewType {
     HomeView,
     RoomView,
 }
+public enum ETeam
+{
+    None, TeamA, TeamB,
+}
