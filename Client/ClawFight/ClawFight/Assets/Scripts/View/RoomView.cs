@@ -34,8 +34,26 @@ public class RoomView : ViewBase
     private void OnPlayerJoinRoom()
     {
         sb.Length = 0;
+        PlayerData mainPlayerData = PlayerManager.instance.mainPlayer.playerData;
+        if (mainPlayerData.eTeam == ETeam.None)
+        {
+            sb.Append(string.Format(formatString, "Self", none));
+        }
+        else if (mainPlayerData.eTeam == ETeam.TeamA)
+        {
+            sb.Append(string.Format(formatString, "Self", teamA));
+        }
+        else
+        {
+            sb.Append(string.Format(formatString, "Self", teamB));
+        }
+        sb.Append('\n');
+
         foreach (var e in PlayerManager.instance.playerInRoom_Dict) {
             PlayerData pd = e.Value.playerData;
+            if (pd.ID == mainPlayerData.ID) {
+                continue;
+            }
             if (pd.eTeam == ETeam.None) {
                 sb.Append(string.Format(formatString, pd.ID, none));
             } else if (pd.eTeam == ETeam.TeamA) {

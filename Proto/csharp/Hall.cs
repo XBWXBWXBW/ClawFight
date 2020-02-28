@@ -25,20 +25,21 @@ namespace message {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "CgpIYWxsLnByb3RvEiRjb20uY29vbGZpc2guaG90ZmlyZS5wcm90b2NvbC5i",
-            "YXR0bGUiHQoNQ1NQX0pvaW5NYXRjaBIMCgR0ZWFtGAEgASgFIh4KClBsYXll",
-            "ckluZm8SEAoIcGxheWVySUQYASABKAUinwEKCFN5bmNJbmZvEkgKDm1haW5Q",
-            "bGF5ZXJJbmZvGAEgASgLMjAuY29tLmNvb2xmaXNoLmhvdGZpcmUucHJvdG9j",
-            "b2wuYmF0dGxlLlBsYXllckluZm8SSQoPb3RoZXJQbGF5ZXJJbmZvGAIgAygL",
-            "MjAuY29tLmNvb2xmaXNoLmhvdGZpcmUucHJvdG9jb2wuYmF0dGxlLlBsYXll",
-            "ckluZm8iIAoMQ1NQX0pvaW5Sb29tEhAKCHBsYXllcklEGAEgASgFIiAKDFND",
-            "UF9Kb2luUm9vbRIQCghwbGF5ZXJJRBgBIAEoBSIgCgxTQ1BfSm9pbkdhbWUS",
-            "EAoIcGxheWVySUQYASABKAVCMgokY29tLmNvb2xmaXNoLmhvdGZpcmUucHJv",
-            "dG9jb2wuYmF0dGxlUAGqAgdtZXNzYWdlYgZwcm90bzM="));
+            "YXR0bGUiHQoNQ1NQX0pvaW5NYXRjaBIMCgR0ZWFtGAEgASgFIjAKClBsYXll",
+            "ckluZm8SEAoIcGxheWVySUQYASABKAUSEAoIaXNJblJvb20YAiABKAginwEK",
+            "CFN5bmNJbmZvEkgKDm1haW5QbGF5ZXJJbmZvGAEgASgLMjAuY29tLmNvb2xm",
+            "aXNoLmhvdGZpcmUucHJvdG9jb2wuYmF0dGxlLlBsYXllckluZm8SSQoPb3Ro",
+            "ZXJQbGF5ZXJJbmZvGAIgAygLMjAuY29tLmNvb2xmaXNoLmhvdGZpcmUucHJv",
+            "dG9jb2wuYmF0dGxlLlBsYXllckluZm8iIAoMQ1NQX0pvaW5Sb29tEhAKCHBs",
+            "YXllcklEGAEgASgFIiAKDFNDUF9Kb2luUm9vbRIQCghwbGF5ZXJJRBgBIAEo",
+            "BSIgCgxTQ1BfSm9pbkdhbWUSEAoIcGxheWVySUQYASABKAVCMgokY29tLmNv",
+            "b2xmaXNoLmhvdGZpcmUucHJvdG9jb2wuYmF0dGxlUAGqAgdtZXNzYWdlYgZw",
+            "cm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::message.CSP_JoinMatch), global::message.CSP_JoinMatch.Parser, new[]{ "Team" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::message.PlayerInfo), global::message.PlayerInfo.Parser, new[]{ "PlayerID" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::message.PlayerInfo), global::message.PlayerInfo.Parser, new[]{ "PlayerID", "IsInRoom" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::message.SyncInfo), global::message.SyncInfo.Parser, new[]{ "MainPlayerInfo", "OtherPlayerInfo" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::message.CSP_JoinRoom), global::message.CSP_JoinRoom.Parser, new[]{ "PlayerID" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::message.SCP_JoinRoom), global::message.SCP_JoinRoom.Parser, new[]{ "PlayerID" }, null, null, null, null),
@@ -204,6 +205,7 @@ namespace message {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public PlayerInfo(PlayerInfo other) : this() {
       playerID_ = other.playerID_;
+      isInRoom_ = other.isInRoom_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -223,6 +225,17 @@ namespace message {
       }
     }
 
+    /// <summary>Field number for the "isInRoom" field.</summary>
+    public const int IsInRoomFieldNumber = 2;
+    private bool isInRoom_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool IsInRoom {
+      get { return isInRoom_; }
+      set {
+        isInRoom_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as PlayerInfo);
@@ -237,6 +250,7 @@ namespace message {
         return true;
       }
       if (PlayerID != other.PlayerID) return false;
+      if (IsInRoom != other.IsInRoom) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -244,6 +258,7 @@ namespace message {
     public override int GetHashCode() {
       int hash = 1;
       if (PlayerID != 0) hash ^= PlayerID.GetHashCode();
+      if (IsInRoom != false) hash ^= IsInRoom.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -261,6 +276,10 @@ namespace message {
         output.WriteRawTag(8);
         output.WriteInt32(PlayerID);
       }
+      if (IsInRoom != false) {
+        output.WriteRawTag(16);
+        output.WriteBool(IsInRoom);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -271,6 +290,9 @@ namespace message {
       int size = 0;
       if (PlayerID != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(PlayerID);
+      }
+      if (IsInRoom != false) {
+        size += 1 + 1;
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -286,6 +308,9 @@ namespace message {
       if (other.PlayerID != 0) {
         PlayerID = other.PlayerID;
       }
+      if (other.IsInRoom != false) {
+        IsInRoom = other.IsInRoom;
+      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -299,6 +324,10 @@ namespace message {
             break;
           case 8: {
             PlayerID = input.ReadInt32();
+            break;
+          }
+          case 16: {
+            IsInRoom = input.ReadBool();
             break;
           }
         }
