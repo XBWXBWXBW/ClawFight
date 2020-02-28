@@ -25,24 +25,25 @@ namespace message {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "CgpIYWxsLnByb3RvEiRjb20uY29vbGZpc2guaG90ZmlyZS5wcm90b2NvbC5i",
-            "YXR0bGUiHQoNQ1NQX0pvaW5NYXRjaBIMCgR0ZWFtGAEgASgFIj4KClBsYXll",
+            "YXR0bGUiHQoNQ1NQX0pvaW5NYXRjaBIMCgR0ZWFtGAEgASgFIlUKClBsYXll",
             "ckluZm8SEAoIcGxheWVySUQYASABKAUSEAoIaXNJblJvb20YAiABKAgSDAoE",
-            "dGVhbRgDIAEoBSKfAQoIU3luY0luZm8SSAoObWFpblBsYXllckluZm8YASAB",
-            "KAsyMC5jb20uY29vbGZpc2guaG90ZmlyZS5wcm90b2NvbC5iYXR0bGUuUGxh",
-            "eWVySW5mbxJJCg9vdGhlclBsYXllckluZm8YAiADKAsyMC5jb20uY29vbGZp",
-            "c2guaG90ZmlyZS5wcm90b2NvbC5iYXR0bGUuUGxheWVySW5mbyIgCgxDU1Bf",
-            "Sm9pblJvb20SEAoIcGxheWVySUQYASABKAUiIAoMU0NQX0pvaW5Sb29tEhAK",
-            "CHBsYXllcklEGAEgASgFIiAKDFNDUF9Kb2luR2FtZRIQCghwbGF5ZXJJRBgB",
-            "IAEoBSIuCgxDU1BfSm9pblRlYW0SEAoIcGxheWVySUQYASABKAUSDAoEdGVh",
-            "bRgCIAEoBSIuCgxTQ1BfSm9pblRlYW0SEAoIcGxheWVySUQYASABKAUSDAoE",
-            "dGVhbRgCIAEoBSIjCg9DU1BfUmVhZHlUb1BsYXkSEAoIcGxheWVySUQYASAB",
-            "KAUiEQoPU0NQX1JlYWR5VG9QbGF5QjIKJGNvbS5jb29sZmlzaC5ob3RmaXJl",
-            "LnByb3RvY29sLmJhdHRsZVABqgIHbWVzc2FnZWIGcHJvdG8z"));
+            "dGVhbRgDIAEoBRIVCg1pc1JlYWR5VG9QbGF5GAQgASgIIp8BCghTeW5jSW5m",
+            "bxJICg5tYWluUGxheWVySW5mbxgBIAEoCzIwLmNvbS5jb29sZmlzaC5ob3Rm",
+            "aXJlLnByb3RvY29sLmJhdHRsZS5QbGF5ZXJJbmZvEkkKD290aGVyUGxheWVy",
+            "SW5mbxgCIAMoCzIwLmNvbS5jb29sZmlzaC5ob3RmaXJlLnByb3RvY29sLmJh",
+            "dHRsZS5QbGF5ZXJJbmZvIiAKDENTUF9Kb2luUm9vbRIQCghwbGF5ZXJJRBgB",
+            "IAEoBSIgCgxTQ1BfSm9pblJvb20SEAoIcGxheWVySUQYASABKAUiIAoMU0NQ",
+            "X0pvaW5HYW1lEhAKCHBsYXllcklEGAEgASgFIi4KDENTUF9Kb2luVGVhbRIQ",
+            "CghwbGF5ZXJJRBgBIAEoBRIMCgR0ZWFtGAIgASgFIi4KDFNDUF9Kb2luVGVh",
+            "bRIQCghwbGF5ZXJJRBgBIAEoBRIMCgR0ZWFtGAIgASgFIiMKD0NTUF9SZWFk",
+            "eVRvUGxheRIQCghwbGF5ZXJJRBgBIAEoBSIRCg9TQ1BfUmVhZHlUb1BsYXlC",
+            "MgokY29tLmNvb2xmaXNoLmhvdGZpcmUucHJvdG9jb2wuYmF0dGxlUAGqAgdt",
+            "ZXNzYWdlYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::message.CSP_JoinMatch), global::message.CSP_JoinMatch.Parser, new[]{ "Team" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::message.PlayerInfo), global::message.PlayerInfo.Parser, new[]{ "PlayerID", "IsInRoom", "Team" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::message.PlayerInfo), global::message.PlayerInfo.Parser, new[]{ "PlayerID", "IsInRoom", "Team", "IsReadyToPlay" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::message.SyncInfo), global::message.SyncInfo.Parser, new[]{ "MainPlayerInfo", "OtherPlayerInfo" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::message.CSP_JoinRoom), global::message.CSP_JoinRoom.Parser, new[]{ "PlayerID" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::message.SCP_JoinRoom), global::message.SCP_JoinRoom.Parser, new[]{ "PlayerID" }, null, null, null, null),
@@ -214,6 +215,7 @@ namespace message {
       playerID_ = other.playerID_;
       isInRoom_ = other.isInRoom_;
       team_ = other.team_;
+      isReadyToPlay_ = other.isReadyToPlay_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -255,6 +257,17 @@ namespace message {
       }
     }
 
+    /// <summary>Field number for the "isReadyToPlay" field.</summary>
+    public const int IsReadyToPlayFieldNumber = 4;
+    private bool isReadyToPlay_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool IsReadyToPlay {
+      get { return isReadyToPlay_; }
+      set {
+        isReadyToPlay_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as PlayerInfo);
@@ -271,6 +284,7 @@ namespace message {
       if (PlayerID != other.PlayerID) return false;
       if (IsInRoom != other.IsInRoom) return false;
       if (Team != other.Team) return false;
+      if (IsReadyToPlay != other.IsReadyToPlay) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -280,6 +294,7 @@ namespace message {
       if (PlayerID != 0) hash ^= PlayerID.GetHashCode();
       if (IsInRoom != false) hash ^= IsInRoom.GetHashCode();
       if (Team != 0) hash ^= Team.GetHashCode();
+      if (IsReadyToPlay != false) hash ^= IsReadyToPlay.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -305,6 +320,10 @@ namespace message {
         output.WriteRawTag(24);
         output.WriteInt32(Team);
       }
+      if (IsReadyToPlay != false) {
+        output.WriteRawTag(32);
+        output.WriteBool(IsReadyToPlay);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -321,6 +340,9 @@ namespace message {
       }
       if (Team != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(Team);
+      }
+      if (IsReadyToPlay != false) {
+        size += 1 + 1;
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -341,6 +363,9 @@ namespace message {
       }
       if (other.Team != 0) {
         Team = other.Team;
+      }
+      if (other.IsReadyToPlay != false) {
+        IsReadyToPlay = other.IsReadyToPlay;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -363,6 +388,10 @@ namespace message {
           }
           case 24: {
             Team = input.ReadInt32();
+            break;
+          }
+          case 32: {
+            IsReadyToPlay = input.ReadBool();
             break;
           }
         }
