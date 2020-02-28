@@ -76,11 +76,12 @@ namespace ClawFight
                 //通知收到了这个协议
                 EventManager.instance.SendProto((EMessageType)rawMessage.MessageType, messageBody);
 
-                foreach (var e in player_socket_dict) {
-                    if (e.Value == pClientSocket) {
-                        Console.WriteLine("Receive : playerID " +e.Key.playerData.ID+"  messageType: "+ (EMessageType)rawMessage.MessageType);
-                    }
-                }
+                //打印受到的协议
+                //foreach (var e in player_socket_dict) {
+                //    if (e.Value == pClientSocket) {
+                //        Console.WriteLine("Receive : playerID " +e.Key.playerData.ID+"  messageType: "+ (EMessageType)rawMessage.MessageType);
+                //    }
+                //}
 
                 BeginReceive(pClientSocket);
             }

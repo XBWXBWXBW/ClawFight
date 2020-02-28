@@ -26,6 +26,7 @@ public class PlayerManager : ManagerBase<PlayerManager>
         SCP_JoinRoom msg = obj as SCP_JoinRoom;
         int _id = msg.PlayerID;
         if (!playerInRoom_Dict.ContainsKey(_id) && playerDict.ContainsKey(_id)) {
+            Debug.LogError("XBW~~  " + _id);
             playerInRoom_Dict.Add(_id, playerDict[_id]);
         }
         EventManager.instance.SendEvent(HallEvents.HALLEVENT_OTHER_PLAYER_IN_ROOM);
@@ -36,6 +37,7 @@ public class PlayerManager : ManagerBase<PlayerManager>
         PlayerData pd = new PlayerData()
         {
             ID = pi.PlayerID,
+            isMainPlayer = true,
         };
         Player p = new Player(pd);
         AddPlayer(p);
