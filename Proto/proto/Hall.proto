@@ -21,3 +21,7 @@ message CSP_JoinRoom {
 	int32 playerID = 1;
 }
 
+message SCP_JoinRoom{
+	int32 playerID = 1;
+}
+

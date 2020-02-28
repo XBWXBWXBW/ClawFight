@@ -26,6 +26,8 @@ namespace ClawFight
         }
         void OnOtherJoinRoom(IMessage _msg) {
             CSP_JoinRoom msg = _msg as CSP_JoinRoom;
+            EMessageType.SCP_JoinRoom;
+            SCP_JoinRoom
         }
         public Player AddPlayer() {
             maxID++;
