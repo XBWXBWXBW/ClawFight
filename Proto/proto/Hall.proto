@@ -14,7 +14,8 @@ message PlayerInfo {
 }
 
 message SyncInfo{
-	PlayerInfo playerInfo = 1;
+	PlayerInfo mainPlayerInfo = 1;
+	repeated PlayerInfo otherPlayerInfo = 2;
 }
 
 message CSP_JoinRoom {

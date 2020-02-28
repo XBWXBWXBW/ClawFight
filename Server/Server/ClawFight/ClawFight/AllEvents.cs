@@ -8,6 +8,7 @@ namespace ClawFight
 {
     class AllEvents
     {
+        public const string SYNC_INFO = "Sync_Info";
         public const string PLAYER_JOIN_GAME = "Player_Join_Game";
     }
 }

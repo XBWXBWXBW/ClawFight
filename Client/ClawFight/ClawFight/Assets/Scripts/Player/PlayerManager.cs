@@ -27,6 +27,16 @@ public class PlayerManager : ManagerBase<PlayerManager>
 
     private void OnPlayerJoinGame(IMessage obj)
     {
+        SCP_JoinGame msg = obj as SCP_JoinGame;
+        if (mainPlayer.playerData.ID == msg.PlayerID) return;
+
+        PlayerData pd = new PlayerData()
+        {
+            ID = msg.PlayerID,
+            isMainPlayer = false,
+        };
+        Player p = new Player(pd);
+        AddPlayer(p);
     }
 
     private void OnPlayerJoinRoom(IMessage obj)
@@ -34,22 +44,32 @@ public class PlayerManager : ManagerBase<PlayerManager>
         SCP_JoinRoom msg = obj as SCP_JoinRoom;
         int _id = msg.PlayerID;
         if (!playerInRoom_Dict.ContainsKey(_id) && playerDict.ContainsKey(_id)) {
-            Debug.LogError("XBW~~  " + _id);
             playerInRoom_Dict.Add(_id, playerDict[_id]);
         }
         EventManager.instance.SendEvent(HallEvents.HALLEVENT_OTHER_PLAYER_IN_ROOM);
     }
     void OnSyncInfo(IMessage _m) {
         SyncInfo si = _m as SyncInfo;
-        PlayerInfo pi = si.PlayerInfo;
+        PlayerInfo mainPlayerInfo = si.MainPlayerInfo;
         PlayerData pd = new PlayerData()
         {
-            ID = pi.PlayerID,
+            ID = mainPlayerInfo.PlayerID,
             isMainPlayer = true,
         };
         Player p = new Player(pd);
         AddPlayer(p);
         mainPlayer = p;
+
+        for (int i = 0; i < si.OtherPlayerInfo.Count; i++) {
+            PlayerInfo _otherInfo = si.OtherPlayerInfo[i];
+            PlayerData _otherData = new PlayerData()
+            {
+                ID = _otherInfo.PlayerID,
+                isMainPlayer = false,
+            };
+            Player _otherPlayer = new Player(_otherData);
+            AddPlayer(_otherPlayer);
+        }
         EventManager.instance.SendEvent(HallEvents.HALLEVENT_SYNCINFO);
     }
     public void AddPlayer(Player p) {

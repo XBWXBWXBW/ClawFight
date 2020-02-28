@@ -19,21 +19,48 @@ namespace ClawFight
             base.Init();
             EventManager.instance.RegistProto(EMessageType.CSP_JoinRoom, OnOtherJoinRoom);
             EventManager.instance.RegistEventT<int>(AllEvents.PLAYER_JOIN_GAME, OnPlayerJoinGame);
+            EventManager.instance.RegistEventT<int>(AllEvents.SYNC_INFO, OnSyncInfo);
         }
         public override void OnDestroy()
         {
             base.OnDestroy();
             EventManager.instance.UnRegistProto(EMessageType.CSP_JoinRoom, OnOtherJoinRoom);
             EventManager.instance.UnRegistEventT<int>(AllEvents.PLAYER_JOIN_GAME, OnPlayerJoinGame);
+            EventManager.instance.UnRegistEventT<int>(AllEvents.SYNC_INFO, OnSyncInfo);
+        }
+
+        private void OnSyncInfo(int obj)
+        {
+            //只给刚登陆的player发送
+            SyncInfo si = new SyncInfo();
+            PlayerInfo pi = new PlayerInfo();
+            pi.PlayerID = obj;
+            si.MainPlayerInfo = pi;
+
+            Player cur = null;
+            foreach (var e in playerDict) {
+                if (e.Key != obj)
+                {
+                    PlayerInfo _other = new PlayerInfo();
+                    _other.PlayerID = e.Key;
+                    si.OtherPlayerInfo.Add(_other);
+                }
+                else {
+                    cur = e.Value;
+                }
+            }
+            ConnectManager.instance.tcpConnect.SendMessage(cur, si, (int)EMessageType.SyncInfo);
         }
 
         private void OnPlayerJoinGame(int pID)
         {
+            //只给非pID的player发送，告诉pID进入game了
             SCP_JoinGame msg = new SCP_JoinGame();
             msg.PlayerID = pID;
             foreach (var e in playerDict) {
-
-                ConnectManager.instance.tcpConnect.SendMessage(e.Value, msg, (int)EMessageType.SCP_JoinGame);
+                if (e.Key != pID) {
+                    ConnectManager.instance.tcpConnect.SendMessage(e.Value, msg, (int)EMessageType.SCP_JoinGame);
+                }
             }
         }
 

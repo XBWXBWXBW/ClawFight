@@ -26,18 +26,20 @@ namespace message {
           string.Concat(
             "CgpIYWxsLnByb3RvEiRjb20uY29vbGZpc2guaG90ZmlyZS5wcm90b2NvbC5i",
             "YXR0bGUiHQoNQ1NQX0pvaW5NYXRjaBIMCgR0ZWFtGAEgASgFIh4KClBsYXll",
-            "ckluZm8SEAoIcGxheWVySUQYASABKAUiUAoIU3luY0luZm8SRAoKcGxheWVy",
-            "SW5mbxgBIAEoCzIwLmNvbS5jb29sZmlzaC5ob3RmaXJlLnByb3RvY29sLmJh",
-            "dHRsZS5QbGF5ZXJJbmZvIiAKDENTUF9Kb2luUm9vbRIQCghwbGF5ZXJJRBgB",
-            "IAEoBSIgCgxTQ1BfSm9pblJvb20SEAoIcGxheWVySUQYASABKAUiIAoMU0NQ",
-            "X0pvaW5HYW1lEhAKCHBsYXllcklEGAEgASgFQjIKJGNvbS5jb29sZmlzaC5o",
-            "b3RmaXJlLnByb3RvY29sLmJhdHRsZVABqgIHbWVzc2FnZWIGcHJvdG8z"));
+            "ckluZm8SEAoIcGxheWVySUQYASABKAUinwEKCFN5bmNJbmZvEkgKDm1haW5Q",
+            "bGF5ZXJJbmZvGAEgASgLMjAuY29tLmNvb2xmaXNoLmhvdGZpcmUucHJvdG9j",
+            "b2wuYmF0dGxlLlBsYXllckluZm8SSQoPb3RoZXJQbGF5ZXJJbmZvGAIgAygL",
+            "MjAuY29tLmNvb2xmaXNoLmhvdGZpcmUucHJvdG9jb2wuYmF0dGxlLlBsYXll",
+            "ckluZm8iIAoMQ1NQX0pvaW5Sb29tEhAKCHBsYXllcklEGAEgASgFIiAKDFND",
+            "UF9Kb2luUm9vbRIQCghwbGF5ZXJJRBgBIAEoBSIgCgxTQ1BfSm9pbkdhbWUS",
+            "EAoIcGxheWVySUQYASABKAVCMgokY29tLmNvb2xmaXNoLmhvdGZpcmUucHJv",
+            "dG9jb2wuYmF0dGxlUAGqAgdtZXNzYWdlYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::message.CSP_JoinMatch), global::message.CSP_JoinMatch.Parser, new[]{ "Team" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::message.PlayerInfo), global::message.PlayerInfo.Parser, new[]{ "PlayerID" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::message.SyncInfo), global::message.SyncInfo.Parser, new[]{ "PlayerInfo" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::message.SyncInfo), global::message.SyncInfo.Parser, new[]{ "MainPlayerInfo", "OtherPlayerInfo" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::message.CSP_JoinRoom), global::message.CSP_JoinRoom.Parser, new[]{ "PlayerID" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::message.SCP_JoinRoom), global::message.SCP_JoinRoom.Parser, new[]{ "PlayerID" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::message.SCP_JoinGame), global::message.SCP_JoinGame.Parser, new[]{ "PlayerID" }, null, null, null, null)
@@ -330,7 +332,8 @@ namespace message {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public SyncInfo(SyncInfo other) : this() {
-      playerInfo_ = other.playerInfo_ != null ? other.playerInfo_.Clone() : null;
+      mainPlayerInfo_ = other.mainPlayerInfo_ != null ? other.mainPlayerInfo_.Clone() : null;
+      otherPlayerInfo_ = other.otherPlayerInfo_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -339,15 +342,25 @@ namespace message {
       return new SyncInfo(this);
     }
 
-    /// <summary>Field number for the "playerInfo" field.</summary>
-    public const int PlayerInfoFieldNumber = 1;
-    private global::message.PlayerInfo playerInfo_;
+    /// <summary>Field number for the "mainPlayerInfo" field.</summary>
+    public const int MainPlayerInfoFieldNumber = 1;
+    private global::message.PlayerInfo mainPlayerInfo_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::message.PlayerInfo PlayerInfo {
-      get { return playerInfo_; }
+    public global::message.PlayerInfo MainPlayerInfo {
+      get { return mainPlayerInfo_; }
       set {
-        playerInfo_ = value;
+        mainPlayerInfo_ = value;
       }
+    }
+
+    /// <summary>Field number for the "otherPlayerInfo" field.</summary>
+    public const int OtherPlayerInfoFieldNumber = 2;
+    private static readonly pb::FieldCodec<global::message.PlayerInfo> _repeated_otherPlayerInfo_codec
+        = pb::FieldCodec.ForMessage(18, global::message.PlayerInfo.Parser);
+    private readonly pbc::RepeatedField<global::message.PlayerInfo> otherPlayerInfo_ = new pbc::RepeatedField<global::message.PlayerInfo>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<global::message.PlayerInfo> OtherPlayerInfo {
+      get { return otherPlayerInfo_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -363,14 +376,16 @@ namespace message {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (!object.Equals(PlayerInfo, other.PlayerInfo)) return false;
+      if (!object.Equals(MainPlayerInfo, other.MainPlayerInfo)) return false;
+      if(!otherPlayerInfo_.Equals(other.otherPlayerInfo_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (playerInfo_ != null) hash ^= PlayerInfo.GetHashCode();
+      if (mainPlayerInfo_ != null) hash ^= MainPlayerInfo.GetHashCode();
+      hash ^= otherPlayerInfo_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -384,10 +399,11 @@ namespace message {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (playerInfo_ != null) {
+      if (mainPlayerInfo_ != null) {
         output.WriteRawTag(10);
-        output.WriteMessage(PlayerInfo);
+        output.WriteMessage(MainPlayerInfo);
       }
+      otherPlayerInfo_.WriteTo(output, _repeated_otherPlayerInfo_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -396,9 +412,10 @@ namespace message {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (playerInfo_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(PlayerInfo);
+      if (mainPlayerInfo_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(MainPlayerInfo);
       }
+      size += otherPlayerInfo_.CalculateSize(_repeated_otherPlayerInfo_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -410,12 +427,13 @@ namespace message {
       if (other == null) {
         return;
       }
-      if (other.playerInfo_ != null) {
-        if (playerInfo_ == null) {
-          PlayerInfo = new global::message.PlayerInfo();
+      if (other.mainPlayerInfo_ != null) {
+        if (mainPlayerInfo_ == null) {
+          MainPlayerInfo = new global::message.PlayerInfo();
         }
-        PlayerInfo.MergeFrom(other.PlayerInfo);
+        MainPlayerInfo.MergeFrom(other.MainPlayerInfo);
       }
+      otherPlayerInfo_.Add(other.otherPlayerInfo_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -428,10 +446,14 @@ namespace message {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            if (playerInfo_ == null) {
-              PlayerInfo = new global::message.PlayerInfo();
+            if (mainPlayerInfo_ == null) {
+              MainPlayerInfo = new global::message.PlayerInfo();
             }
-            input.ReadMessage(PlayerInfo);
+            input.ReadMessage(MainPlayerInfo);
+            break;
+          }
+          case 18: {
+            otherPlayerInfo_.AddEntriesFrom(input, _repeated_otherPlayerInfo_codec);
             break;
           }
         }

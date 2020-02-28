@@ -14,14 +14,6 @@ namespace ClawFight
         public PlayerData playerData;
 
         public void Init() {
-            SendPlayerInfo();
-        }
-        private void SendPlayerInfo() {
-            SyncInfo si = new SyncInfo();
-            PlayerInfo pi = new PlayerInfo();
-            pi.PlayerID = playerData.ID;
-            si.PlayerInfo = pi;
-            ConnectManager.instance.tcpConnect.SendMessage(this, si, (int)EMessageType.SyncInfo);
         }
         
     }
