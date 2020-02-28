@@ -28,16 +28,16 @@ namespace message {
             "YXR0bGUiHQoNQ1NQX0pvaW5NYXRjaBIMCgR0ZWFtGAEgASgFIh4KClBsYXll",
             "ckluZm8SEAoIcGxheWVySUQYASABKAUiUAoIU3luY0luZm8SRAoKcGxheWVy",
             "SW5mbxgBIAEoCzIwLmNvbS5jb29sZmlzaC5ob3RmaXJlLnByb3RvY29sLmJh",
-            "dHRsZS5QbGF5ZXJJbmZvIh4KCkNfSm9pblJvb20SEAoIcGxheWVySUQYASAB",
-            "KAVCMgokY29tLmNvb2xmaXNoLmhvdGZpcmUucHJvdG9jb2wuYmF0dGxlUAGq",
-            "AgdtZXNzYWdlYgZwcm90bzM="));
+            "dHRsZS5QbGF5ZXJJbmZvIiAKDENTUF9Kb2luUm9vbRIQCghwbGF5ZXJJRBgB",
+            "IAEoBUIyCiRjb20uY29vbGZpc2guaG90ZmlyZS5wcm90b2NvbC5iYXR0bGVQ",
+            "AaoCB21lc3NhZ2ViBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::message.CSP_JoinMatch), global::message.CSP_JoinMatch.Parser, new[]{ "Team" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::message.PlayerInfo), global::message.PlayerInfo.Parser, new[]{ "PlayerID" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::message.SyncInfo), global::message.SyncInfo.Parser, new[]{ "PlayerInfo" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::message.C_JoinRoom), global::message.C_JoinRoom.Parser, new[]{ "PlayerID" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::message.CSP_JoinRoom), global::message.CSP_JoinRoom.Parser, new[]{ "PlayerID" }, null, null, null, null)
           }));
     }
     #endregion
@@ -437,11 +437,11 @@ namespace message {
 
   }
 
-  public sealed partial class C_JoinRoom : pb::IMessage<C_JoinRoom> {
-    private static readonly pb::MessageParser<C_JoinRoom> _parser = new pb::MessageParser<C_JoinRoom>(() => new C_JoinRoom());
+  public sealed partial class CSP_JoinRoom : pb::IMessage<CSP_JoinRoom> {
+    private static readonly pb::MessageParser<CSP_JoinRoom> _parser = new pb::MessageParser<CSP_JoinRoom>(() => new CSP_JoinRoom());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<C_JoinRoom> Parser { get { return _parser; } }
+    public static pb::MessageParser<CSP_JoinRoom> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
@@ -454,21 +454,21 @@ namespace message {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public C_JoinRoom() {
+    public CSP_JoinRoom() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public C_JoinRoom(C_JoinRoom other) : this() {
+    public CSP_JoinRoom(CSP_JoinRoom other) : this() {
       playerID_ = other.playerID_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public C_JoinRoom Clone() {
-      return new C_JoinRoom(this);
+    public CSP_JoinRoom Clone() {
+      return new CSP_JoinRoom(this);
     }
 
     /// <summary>Field number for the "playerID" field.</summary>
@@ -484,11 +484,11 @@ namespace message {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as C_JoinRoom);
+      return Equals(other as CSP_JoinRoom);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(C_JoinRoom other) {
+    public bool Equals(CSP_JoinRoom other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -538,7 +538,7 @@ namespace message {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(C_JoinRoom other) {
+    public void MergeFrom(CSP_JoinRoom other) {
       if (other == null) {
         return;
       }

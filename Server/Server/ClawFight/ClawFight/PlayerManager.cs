@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Google.Protobuf;
+using message;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Sockets;
@@ -12,6 +14,19 @@ namespace ClawFight
         private Dictionary<int, Player> playerDict = new Dictionary<int, Player>();
         private int maxID = 0;
 
+        public override void Init()
+        {
+            base.Init();
+            EventManager.instance.RegistProto(EMessageType.CSP_JoinRoom, OnOtherJoinRoom);
+        }
+        public override void OnDestroy()
+        {
+            base.OnDestroy();
+            EventManager.instance.UnRegistProto(EMessageType.CSP_JoinRoom, OnOtherJoinRoom);
+        }
+        void OnOtherJoinRoom(IMessage _msg) {
+            CSP_JoinRoom msg = _msg as CSP_JoinRoom;
+        }
         public Player AddPlayer() {
             maxID++;
             PlayerData pd = new PlayerData()

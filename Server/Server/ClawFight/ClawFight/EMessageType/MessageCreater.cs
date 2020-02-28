@@ -15,8 +15,8 @@ case EMessageType.PlayerInfo:
 case EMessageType.SyncInfo:
                 message = new message.SyncInfo();
                 break;
-case EMessageType.C_JoinRoom:
-                message = new message.C_JoinRoom();
+case EMessageType.CSP_JoinRoom:
+                message = new message.CSP_JoinRoom();
                 break;
 
         }

@@ -50,13 +50,15 @@ namespace ClawFight
             {
                 pClientSocket.BeginReceive(bytes, 0, bytes.Length, SocketFlags.None, EndReceive, pClientSocket);
             }
-            catch { }
+            catch {
+
+            }
         }
         void EndReceive(IAsyncResult ia)
         {
+            Socket pClientSocket = ia.AsyncState as Socket;
             try
             {
-                Socket pClientSocket = ia.AsyncState as Socket;
                 int _size = pClientSocket.EndReceive(ia);
 
                 RawMessage rawMessage = new RawMessage();
@@ -82,7 +84,9 @@ namespace ClawFight
 
                 BeginReceive(pClientSocket);
             }
-            catch { }
+            catch {
+
+            }
         }
 
         public void SendMessage(Player player, IMessage message, int messageID)

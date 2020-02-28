@@ -37,8 +37,8 @@ public class HomeView : ViewBase
     }
     public void JoinRoom()
     {
-        C_JoinRoom msg = new C_JoinRoom();
+        CSP_JoinRoom msg = new CSP_JoinRoom();
         msg.PlayerID = PlayerManager.instance.mainPlayer.playerData.ID;
-        GameManager.instance.connectProxy.SendMessage(EMessageType.C_JoinRoom, msg);
+        GameManager.instance.connectProxy.SendMessage(EMessageType.CSP_JoinRoom, msg);
     }
 }

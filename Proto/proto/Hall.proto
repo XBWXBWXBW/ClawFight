@@ -17,7 +17,7 @@ message SyncInfo{
 	PlayerInfo playerInfo = 1;
 }
 
-message C_JoinRoom {
+message CSP_JoinRoom {
 	int32 playerID = 1;
 }
 
