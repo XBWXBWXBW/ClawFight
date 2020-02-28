@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Text.RegularExpressions;
+using System.Threading;
 
 namespace ProtoGen
 {
@@ -26,12 +27,8 @@ namespace ProtoGen
             Console.ReadKey();
         }
         private static void GenerateProtoScript() {
-            Process p = new Process();
-            p.StartInfo = new ProcessStartInfo()
-            {
-                FileName = @"protoc.exe",
-                WindowStyle = ProcessWindowStyle.Hidden,
-            };
+            List<Process> pList = new List<Process>();
+            
             string protoDir = @"proto";
             string csharp_out = @"csharp";
             DirectoryInfo di = new DirectoryInfo(protoDir);
@@ -42,11 +39,32 @@ namespace ProtoGen
                 string protoName = fi.Name;
                 string arg = string.Format("{0} {1} {2}", arg0, protoName, arg1);
 
+                Process p = new Process();
+                p.StartInfo = new ProcessStartInfo()
+                {
+                    FileName = @"protoc.exe",
+                    WindowStyle = ProcessWindowStyle.Hidden,
+                };
+                pList.Add(p);
                 p.StartInfo.Arguments = arg;
                 p.Start();
                 Console.WriteLine(protoName);
             }
-
+            while (true) {
+                bool canBreak = true;
+                foreach (var p in pList) {
+                    if (!p.HasExited) {
+                        canBreak = false;
+                    }
+                }
+                if (canBreak) {
+                    break;
+                }
+            }
+            foreach (var p in pList) {
+                p.Close();
+            }
+            pList.Clear();
             string clientPath = @"..\Client\ClawFight\ClawFight\Assets\Scripts\Message\Message";
             DirectoryInfo clientDI = new DirectoryInfo(clientPath);
             while (clientDI.GetFiles().Length != 0)
