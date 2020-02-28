@@ -58,6 +58,7 @@ public class PlayerManager : ManagerBase<PlayerManager>
             ID = mainPlayerInfo.PlayerID,
             isMainPlayer = true,
             isInRoom = mainPlayerInfo.IsInRoom,
+            eTeam = (ETeam)mainPlayerInfo.Team,
         };
         Player p = new Player(pd);
         AddPlayer(p);
@@ -73,6 +74,7 @@ public class PlayerManager : ManagerBase<PlayerManager>
                 ID = _otherInfo.PlayerID,
                 isMainPlayer = false,
                 isInRoom = _otherInfo.IsInRoom,
+                eTeam = (ETeam)_otherInfo.Team,
             };
             Player _otherPlayer = new Player(_otherData);
             AddPlayer(_otherPlayer);

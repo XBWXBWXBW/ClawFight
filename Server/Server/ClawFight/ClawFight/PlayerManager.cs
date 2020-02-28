@@ -36,6 +36,7 @@ namespace ClawFight
             SyncInfo si = new SyncInfo();
             PlayerInfo pi = new PlayerInfo();
             pi.PlayerID = obj;
+            pi.Team = (int)playerDict[obj].playerData.team;
             si.MainPlayerInfo = pi;
 
             Player cur = null;
@@ -44,6 +45,7 @@ namespace ClawFight
                 {
                     PlayerInfo _other = new PlayerInfo();
                     _other.PlayerID = e.Key;
+                    _other.Team = (int)playerDict[e.Key].playerData.team;
                     if (playerInRoom.ContainsKey(e.Key))
                     {
                         _other.IsInRoom = true;
