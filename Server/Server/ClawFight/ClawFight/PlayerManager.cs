@@ -26,6 +26,11 @@ namespace ClawFight
         }
         void OnOtherJoinRoom(IMessage _msg) {
             CSP_JoinRoom msg = _msg as CSP_JoinRoom;
+            int _id = msg.PlayerID;
+            foreach (var e in playerDict) {
+                Player p = e.Value;
+                ConnectManager.instance.tcpConnect.SendMessage()
+            }
         }
         public Player AddPlayer() {
             maxID++;

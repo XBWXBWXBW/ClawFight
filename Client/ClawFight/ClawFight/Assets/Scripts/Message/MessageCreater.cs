@@ -18,6 +18,9 @@ case EMessageType.SyncInfo:
 case EMessageType.CSP_JoinRoom:
                 message = new message.CSP_JoinRoom();
                 break;
+case EMessageType.SCP_JoinRoom:
+                message = new message.SCP_JoinRoom();
+                break;
 
         }
         return message;

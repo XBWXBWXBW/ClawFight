@@ -3,4 +3,5 @@ CSP_JoinMatch=1,
 PlayerInfo=2,
 SyncInfo=3,
 CSP_JoinRoom=4,
+SCP_JoinRoom=5,
 }
