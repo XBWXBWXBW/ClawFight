@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using message;
+using System;
 
 public class PlayerManager : ManagerBase<PlayerManager>
 {
@@ -15,12 +16,19 @@ public class PlayerManager : ManagerBase<PlayerManager>
         EventManager.instance.RegistProto(EMessageType.SyncInfo, OnSyncInfo);
 
         EventManager.instance.RegistProto(EMessageType.SCP_JoinRoom, OnPlayerJoinRoom);
+        EventManager.instance.RegistProto(EMessageType.SCP_JoinGame, OnPlayerJoinGame);
     }
     public override void OnDestroy()
     {
         EventManager.instance.UnRegistProto(EMessageType.SyncInfo, OnSyncInfo);
         EventManager.instance.UnRegistProto(EMessageType.SCP_JoinRoom, OnPlayerJoinRoom);
+        EventManager.instance.UnRegistProto(EMessageType.SCP_JoinGame, OnPlayerJoinGame);
     }
+
+    private void OnPlayerJoinGame(IMessage obj)
+    {
+    }
+
     private void OnPlayerJoinRoom(IMessage obj)
     {
         SCP_JoinRoom msg = obj as SCP_JoinRoom;

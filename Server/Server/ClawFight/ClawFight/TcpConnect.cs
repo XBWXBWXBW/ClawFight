@@ -39,6 +39,8 @@ namespace ClawFight
                 Player p = PlayerManager.instance.AddPlayer();
                 player_socket_dict.Add(p, pClientSocket);
                 p.Init();
+
+                EventManager.instance.SendEventT(AllEvents.PLAYER_JOIN_GAME, p.playerData.ID);
             }
             catch {
 

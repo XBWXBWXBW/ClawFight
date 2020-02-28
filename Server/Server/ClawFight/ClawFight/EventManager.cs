@@ -41,7 +41,7 @@ namespace ClawFight
             ActionEvent<T> at = actionTDict[eventName] as ActionEvent<T>;
             at.RegistEvent(action);
         }
-        public void UnRegisEventT<T>(string eventName, Action<T> action)
+        public void UnRegistEventT<T>(string eventName, Action<T> action)
         {
             if (actionTDict.ContainsKey(eventName))
             {

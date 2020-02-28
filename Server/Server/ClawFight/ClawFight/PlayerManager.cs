@@ -18,12 +18,25 @@ namespace ClawFight
         {
             base.Init();
             EventManager.instance.RegistProto(EMessageType.CSP_JoinRoom, OnOtherJoinRoom);
+            EventManager.instance.RegistEventT<int>(AllEvents.PLAYER_JOIN_GAME, OnPlayerJoinGame);
         }
         public override void OnDestroy()
         {
             base.OnDestroy();
             EventManager.instance.UnRegistProto(EMessageType.CSP_JoinRoom, OnOtherJoinRoom);
+            EventManager.instance.UnRegistEventT<int>(AllEvents.PLAYER_JOIN_GAME, OnPlayerJoinGame);
         }
+
+        private void OnPlayerJoinGame(int pID)
+        {
+            SCP_JoinGame msg = new SCP_JoinGame();
+            msg.PlayerID = pID;
+            foreach (var e in playerDict) {
+
+                ConnectManager.instance.tcpConnect.SendMessage(e.Value, msg, (int)EMessageType.SCP_JoinGame);
+            }
+        }
+
         void OnOtherJoinRoom(IMessage _msg) {
             CSP_JoinRoom msg = _msg as CSP_JoinRoom;
             int _id = msg.PlayerID;
