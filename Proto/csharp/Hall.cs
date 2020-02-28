@@ -37,9 +37,9 @@ namespace message {
             "CghwbGF5ZXJJRBgBIAEoBRIMCgR0ZWFtGAIgASgFIi4KDFNDUF9Kb2luVGVh",
             "bRIQCghwbGF5ZXJJRBgBIAEoBRIMCgR0ZWFtGAIgASgFIiMKD0NTUF9SZWFk",
             "eVRvUGxheRIQCghwbGF5ZXJJRBgBIAEoBSIjCg9TQ1BfUmVhZHlUb1BsYXkS",
-            "EAoIcGxheWVySUQYASABKAUiDwoNU0NQX0VudGVyUGxheUIyCiRjb20uY29v",
-            "bGZpc2guaG90ZmlyZS5wcm90b2NvbC5iYXR0bGVQAaoCB21lc3NhZ2ViBnBy",
-            "b3RvMw=="));
+            "EAoIcGxheWVySUQYASABKAUiHgoNU0NQX0VudGVyUGxheRINCgVtYXBJRBgB",
+            "IAEoBUIyCiRjb20uY29vbGZpc2guaG90ZmlyZS5wcm90b2NvbC5iYXR0bGVQ",
+            "AaoCB21lc3NhZ2ViBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -53,7 +53,7 @@ namespace message {
             new pbr::GeneratedClrTypeInfo(typeof(global::message.SCP_JoinTeam), global::message.SCP_JoinTeam.Parser, new[]{ "PlayerID", "Team" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::message.CSP_ReadyToPlay), global::message.CSP_ReadyToPlay.Parser, new[]{ "PlayerID" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::message.SCP_ReadyToPlay), global::message.SCP_ReadyToPlay.Parser, new[]{ "PlayerID" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::message.SCP_EnterPlay), global::message.SCP_EnterPlay.Parser, null, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::message.SCP_EnterPlay), global::message.SCP_EnterPlay.Parser, new[]{ "MapID" }, null, null, null, null)
           }));
     }
     #endregion
@@ -1541,12 +1541,24 @@ namespace message {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public SCP_EnterPlay(SCP_EnterPlay other) : this() {
+      mapID_ = other.mapID_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public SCP_EnterPlay Clone() {
       return new SCP_EnterPlay(this);
+    }
+
+    /// <summary>Field number for the "mapID" field.</summary>
+    public const int MapIDFieldNumber = 1;
+    private int mapID_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int MapID {
+      get { return mapID_; }
+      set {
+        mapID_ = value;
+      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1562,12 +1574,14 @@ namespace message {
       if (ReferenceEquals(other, this)) {
         return true;
       }
+      if (MapID != other.MapID) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
+      if (MapID != 0) hash ^= MapID.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1581,6 +1595,10 @@ namespace message {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
+      if (MapID != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(MapID);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1589,6 +1607,9 @@ namespace message {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
+      if (MapID != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(MapID);
+      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -1599,6 +1620,9 @@ namespace message {
     public void MergeFrom(SCP_EnterPlay other) {
       if (other == null) {
         return;
+      }
+      if (other.MapID != 0) {
+        MapID = other.MapID;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -1611,6 +1635,10 @@ namespace message {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
+          case 8: {
+            MapID = input.ReadInt32();
+            break;
+          }
         }
       }
     }

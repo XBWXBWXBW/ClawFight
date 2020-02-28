@@ -52,5 +52,5 @@ message SCP_ReadyToPlay{
 }
 
 message SCP_EnterPlay{
-	
+	int32 mapID = 1;
 }
