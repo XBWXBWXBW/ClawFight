@@ -12,6 +12,7 @@ message CSP_JoinMatch {
 message PlayerInfo {
 	int32 playerID = 1;
 	bool isInRoom = 2;
+	int32 team = 3;
 }
 
 message SyncInfo{
