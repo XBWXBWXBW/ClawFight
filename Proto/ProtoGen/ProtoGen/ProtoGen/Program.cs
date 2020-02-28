@@ -60,15 +60,16 @@ namespace ProtoGen
             {
                 serverDI.GetFiles()[0].Delete();
             }
-            Console.WriteLine("legnth "+ serverDI.GetFiles().Length);
             string csharpPath = @"csharp";
             DirectoryInfo _csharpDI = new DirectoryInfo(csharpPath);
             foreach (var fi in _csharpDI.GetFiles())
             {
                 string cDst = string.Format(@"{0}\{1}", clientPath, fi.Name);
+                File.Create(cDst);
                 fi.CopyTo(cDst, true);
 
                 string sDst = string.Format(@"{0}\{1}", serverPath, fi.Name);
+                File.Create(sDst);
                 fi.CopyTo(sDst, true);
             }
         }
