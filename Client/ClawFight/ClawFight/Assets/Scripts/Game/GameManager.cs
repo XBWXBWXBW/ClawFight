@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using Google.Protobuf;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -22,6 +24,18 @@ public class GameManager : MonoBehaviour
         PlayerManager.instance.Init();
         ViewManager.instance.canvas = canvas;
         ViewManager.instance.Init();
+    }
+    private void OnEnable()
+    {
+        EventManager.instance.RegistProto(EMessageType.SCP_EnterPlay, OnEnterPlay);
+    }
+    private void OnDisable()
+    {
+        EventManager.instance.UnRegistProto(EMessageType.SCP_EnterPlay, OnEnterPlay);
+    }
+
+    private void OnEnterPlay(IMessage obj)
+    {
     }
 
     // Update is called once per frame

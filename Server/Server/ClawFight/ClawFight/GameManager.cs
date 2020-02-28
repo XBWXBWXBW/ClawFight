@@ -27,5 +27,8 @@ namespace ClawFight
             if (_curCount > START_COUNT - 1) return false;
             return true;
         }
+        public void PlayStart() {
+            PlayerManager.instance.PlayStart();
+        }
     }
 }

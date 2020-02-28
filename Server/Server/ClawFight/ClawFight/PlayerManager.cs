@@ -54,6 +54,17 @@ namespace ClawFight
                         ConnectManager.instance.tcpConnect.SendMessage(e.Value, _msg, (int)EMessageType.SCP_ReadyToPlay);
                     }
                 }
+                GameManager.instance.PlayStart();
+            }
+        }
+        public void PlayStart() {
+            foreach (var e in playerDict) {
+                Player p = e.Value;
+                PlayerData pd = p.playerData;
+                SCP_EnterPlay msg = new SCP_EnterPlay();
+                if (pd.isReady) {
+                    ConnectManager.instance.tcpConnect.SendMessage(p, msg, (int)EMessageType.SCP_EnterPlay);
+                }
             }
         }
         private void OnJoinTeam(IMessage obj)
