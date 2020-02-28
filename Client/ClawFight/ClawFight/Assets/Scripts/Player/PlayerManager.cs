@@ -49,16 +49,22 @@ public class PlayerManager : ManagerBase<PlayerManager>
         EventManager.instance.SendEvent(HallEvents.HALLEVENT_OTHER_PLAYER_IN_ROOM);
     }
     void OnSyncInfo(IMessage _m) {
+        playerInRoom_Dict.Clear();
+
         SyncInfo si = _m as SyncInfo;
         PlayerInfo mainPlayerInfo = si.MainPlayerInfo;
         PlayerData pd = new PlayerData()
         {
             ID = mainPlayerInfo.PlayerID,
             isMainPlayer = true,
+            isInRoom = mainPlayerInfo.IsInRoom,
         };
         Player p = new Player(pd);
         AddPlayer(p);
         mainPlayer = p;
+        if (pd.isInRoom) {
+            playerInRoom_Dict.Add(pd.ID, p);
+        }
 
         for (int i = 0; i < si.OtherPlayerInfo.Count; i++) {
             PlayerInfo _otherInfo = si.OtherPlayerInfo[i];
@@ -66,10 +72,17 @@ public class PlayerManager : ManagerBase<PlayerManager>
             {
                 ID = _otherInfo.PlayerID,
                 isMainPlayer = false,
+                isInRoom = _otherInfo.IsInRoom,
             };
             Player _otherPlayer = new Player(_otherData);
             AddPlayer(_otherPlayer);
+
+            if (_otherData.isInRoom) {
+                playerInRoom_Dict.Add(_otherData.ID, _otherPlayer);
+            }
         }
+
+
         EventManager.instance.SendEvent(HallEvents.HALLEVENT_SYNCINFO);
     }
     public void AddPlayer(Player p) {

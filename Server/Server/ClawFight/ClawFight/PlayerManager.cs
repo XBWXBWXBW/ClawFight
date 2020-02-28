@@ -12,6 +12,7 @@ namespace ClawFight
     class PlayerManager : ManagerBase<PlayerManager>
     {
         private Dictionary<int, Player> playerDict = new Dictionary<int, Player>();
+        private Dictionary<int, Player> playerInRoom = new Dictionary<int, Player>();
         private int maxID = 0;
 
         public override void Init()
@@ -43,6 +44,13 @@ namespace ClawFight
                 {
                     PlayerInfo _other = new PlayerInfo();
                     _other.PlayerID = e.Key;
+                    if (playerInRoom.ContainsKey(e.Key))
+                    {
+                        _other.IsInRoom = true;
+                    }
+                    else {
+                        _other.IsInRoom = false;
+                    }
                     si.OtherPlayerInfo.Add(_other);
                 }
                 else {
@@ -67,6 +75,11 @@ namespace ClawFight
         void OnOtherJoinRoom(IMessage _msg) {
             CSP_JoinRoom msg = _msg as CSP_JoinRoom;
             int _id = msg.PlayerID;
+
+            if (playerDict.ContainsKey(_id) && !playerInRoom.ContainsKey(_id)) {
+                playerInRoom.Add(_id, playerDict[_id]);
+            }
+
             SCP_JoinRoom m = new SCP_JoinRoom();
             m.PlayerID = _id;
             foreach (var e in playerDict) {
