@@ -10,5 +10,6 @@ namespace ClawFight
     class PlayerData : EntityData
     {
         public ETeam team = ETeam.None;
+        public bool isReady = false;
     }
 }

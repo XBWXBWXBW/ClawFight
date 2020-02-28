@@ -662,6 +662,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   viewType: 2
   infoText: {fileID: 1543013722}
+  teamAButton: {fileID: 1293822140}
+  teamBButton: {fileID: 1689084993}
 --- !u!1 &608979047
 GameObject:
   m_ObjectHideFlags: 0
@@ -1574,7 +1576,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1308610473}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 593233043}
+        m_MethodName: ReadyToPlay_Yes_No
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1308610473

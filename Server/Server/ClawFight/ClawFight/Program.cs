@@ -10,7 +10,7 @@ namespace ClawFight
     {
         static void Main(string[] args)
         {
-            GameManager gameManager = new GameManager();
+            GameManager.instance.Init();
             ConnectManager.instance.Start();
 
             Console.ReadKey();

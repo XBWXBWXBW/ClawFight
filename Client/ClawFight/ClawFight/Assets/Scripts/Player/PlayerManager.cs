@@ -17,6 +17,7 @@ public class PlayerManager : ManagerBase<PlayerManager>
         EventManager.instance.RegistProto(EMessageType.SCP_JoinRoom, OnPlayerJoinRoom);
         EventManager.instance.RegistProto(EMessageType.SCP_JoinGame, OnPlayerJoinGame);
         EventManager.instance.RegistProto(EMessageType.SCP_JoinTeam, OnPlayerJoinTeam);
+        EventManager.instance.RegistProto(EMessageType.SCP_ReadyToPlay, OnPlayerReadyToPlay);
     }
     public override void OnDestroy()
     {
@@ -24,6 +25,13 @@ public class PlayerManager : ManagerBase<PlayerManager>
         EventManager.instance.UnRegistProto(EMessageType.SCP_JoinRoom, OnPlayerJoinRoom);
         EventManager.instance.UnRegistProto(EMessageType.SCP_JoinGame, OnPlayerJoinGame);
         EventManager.instance.UnRegistProto(EMessageType.SCP_JoinTeam, OnPlayerJoinTeam);
+        EventManager.instance.UnRegistProto(EMessageType.SCP_ReadyToPlay, OnPlayerReadyToPlay);
+    }
+
+    private void OnPlayerReadyToPlay(IMessage obj)
+    {
+        EventManager.instance.SendEvent(HallEvents.HALLEVENT_PLAYER_READY_TO_PLAY);
+        Debug.LogError("XBW  ready to play");
     }
 
     private void OnPlayerJoinTeam(IMessage obj)

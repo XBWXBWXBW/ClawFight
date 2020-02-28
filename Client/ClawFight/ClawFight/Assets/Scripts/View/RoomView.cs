@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public class RoomView : ViewBase
 {
     public Text infoText;
+    public GameObject teamAButton, teamBButton;
     StringBuilder sb = new StringBuilder();
     const string formatString = "PlayerID: {0}  PlayerTeam: {1}";
     const string teamA = "TeamA", teamB = "TeamB", none = "NoTeam";
@@ -96,8 +97,16 @@ public class RoomView : ViewBase
         msg.Team = (int)eTeam;
         GameManager.instance.connectProxy.SendMessage(EMessageType.CSP_JoinTeam, msg);
     }
-    public void Ready_Yes_No() {
-
+    public void ReadyToPlay_Yes_No() {
+        PlayerData pd = PlayerManager.instance.mainPlayer.playerData;
+        if (pd.eTeam == ETeam.None) {
+            return;
+        }
+        teamAButton.SetActive(false);
+        teamBButton.SetActive(false);
+        CSP_ReadyToPlay msg = new CSP_ReadyToPlay();
+        msg.PlayerID = pd.ID;
+        GameManager.instance.connectProxy.SendMessage(EMessageType.CSP_ReadyToPlay, msg);
     }
     
 }

@@ -15,11 +15,16 @@ namespace ClawFight
         private Dictionary<int, Player> playerInRoom = new Dictionary<int, Player>();
         private int maxID = 0;
 
+        public Dictionary<int, Player> GetPlayerInRoom() {
+            return playerInRoom;
+        }
         public override void Init()
         {
             base.Init();
             EventManager.instance.RegistProto(EMessageType.CSP_JoinRoom, OnOtherJoinRoom);
             EventManager.instance.RegistProto(EMessageType.CSP_JoinTeam, OnJoinTeam);
+            EventManager.instance.RegistProto(EMessageType.CSP_ReadyToPlay, OnReadToPlay);
+
             EventManager.instance.RegistEventT<int>(AllEvents.PLAYER_JOIN_GAME, OnPlayerJoinGame);
             EventManager.instance.RegistEventT<int>(AllEvents.SYNC_INFO, OnSyncInfo);
         }
@@ -28,10 +33,26 @@ namespace ClawFight
             base.OnDestroy();
             EventManager.instance.UnRegistProto(EMessageType.CSP_JoinRoom, OnOtherJoinRoom);
             EventManager.instance.UnRegistProto(EMessageType.CSP_JoinTeam, OnJoinTeam);
+            EventManager.instance.UnRegistProto(EMessageType.CSP_ReadyToPlay, OnReadToPlay);
+
             EventManager.instance.UnRegistEventT<int>(AllEvents.PLAYER_JOIN_GAME, OnPlayerJoinGame);
             EventManager.instance.UnRegistEventT<int>(AllEvents.SYNC_INFO, OnSyncInfo);
         }
+        private void OnReadToPlay(IMessage obj)
+        {
+            CSP_ReadyToPlay msg = obj as CSP_ReadyToPlay;
+            int _id = msg.PlayerID;
+            if (GameManager.instance.CanEnterPlay()) {
+                if (playerDict.ContainsKey(_id)) {
+                    Player p = playerDict[_id];
+                    PlayerData pd = p.playerData;
+                    pd.isReady = true;
 
+                    SCP_ReadyToPlay _msg = new SCP_ReadyToPlay();
+                    ConnectManager.instance.tcpConnect.SendMessage(p, _msg, (int)EMessageType.SCP_ReadyToPlay);
+                }
+            }
+        }
         private void OnJoinTeam(IMessage obj)
         {
             CSP_JoinTeam msg = obj as CSP_JoinTeam;
