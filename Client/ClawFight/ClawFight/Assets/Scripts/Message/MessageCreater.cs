@@ -21,6 +21,9 @@ case EMessageType.CSP_JoinRoom:
 case EMessageType.SCP_JoinRoom:
                 message = new message.SCP_JoinRoom();
                 break;
+case EMessageType.SCP_JoinGame:
+                message = new message.SCP_JoinGame();
+                break;
 
         }
         return message;

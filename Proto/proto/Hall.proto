@@ -25,3 +25,6 @@ message SCP_JoinRoom{
 	int32 playerID = 1;
 }
 
+message SCP_JoinGame{
+	int32 playerID = 1;
+}
