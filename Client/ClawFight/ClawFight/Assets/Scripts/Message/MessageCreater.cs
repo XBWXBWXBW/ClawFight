@@ -24,6 +24,12 @@ case EMessageType.SCP_JoinRoom:
 case EMessageType.SCP_JoinGame:
                 message = new message.SCP_JoinGame();
                 break;
+case EMessageType.CSP_JoinTeam:
+                message = new message.CSP_JoinTeam();
+                break;
+case EMessageType.SCP_JoinTeam:
+                message = new message.SCP_JoinTeam();
+                break;
 
         }
         return message;
