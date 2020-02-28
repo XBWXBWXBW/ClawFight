@@ -8,5 +8,8 @@ namespace ClawFight
 {
     class GameManager
     {
+        public GameManager() {
+            PlayerManager.instance.Init();
+        }
     }
 }

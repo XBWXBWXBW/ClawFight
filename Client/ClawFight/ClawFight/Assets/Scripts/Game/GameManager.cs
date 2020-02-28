@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject canvas;
     public static GameManager instance;
     public MatchProxy matchProxy;
     public ConnectProxy connectProxy;
@@ -19,8 +20,8 @@ public class GameManager : MonoBehaviour
         matchProxy = new MatchProxy();
         connectProxy = new ConnectProxy();
         PlayerManager.instance.Init();
+        ViewManager.instance.canvas = canvas;
         ViewManager.instance.Init();
-        
     }
 
     // Update is called once per frame

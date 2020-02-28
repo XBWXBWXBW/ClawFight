@@ -40,5 +40,12 @@ public class HomeView : ViewBase
         CSP_JoinRoom msg = new CSP_JoinRoom();
         msg.PlayerID = PlayerManager.instance.mainPlayer.playerData.ID;
         GameManager.instance.connectProxy.SendMessage(EMessageType.CSP_JoinRoom, msg);
+
+        joinRoomButton.SetActive(false);
+
+        RoomView roomView = ViewManager.instance.GetView(EViewType.RoomView) as RoomView;
+        roomView.gameObject.SetActive(true);
+
+        gameObject.SetActive(false);
     }
 }

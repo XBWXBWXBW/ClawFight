@@ -302,6 +302,18 @@
     <Reference Include="UnityEngine.SpatialTracking">
       <HintPath>D:/Program Files/UnityEditor/2018.3.14f1/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
+    <Reference Include="Google.Protobuf">
+      <HintPath>D:/Mine/Project/Unity_Project/ClawFight1/Client/ClawFight/ClawFight/Assets/Plugin/Google_Protobuf/Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Buffers">
+      <HintPath>D:/Mine/Project/Unity_Project/ClawFight1/Client/ClawFight/ClawFight/Assets/Plugin/Google_Protobuf/System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory">
+      <HintPath>D:/Mine/Project/Unity_Project/ClawFight1/Client/ClawFight/ClawFight/Assets/Plugin/Google_Protobuf/System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe">
+      <HintPath>D:/Mine/Project/Unity_Project/ClawFight1/Client/ClawFight/ClawFight/Assets/Plugin/Google_Protobuf/System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Analytics.Editor">
       <HintPath>D:/Mine/Project/Unity_Project/ClawFight1/Client/ClawFight/ClawFight/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
@@ -310,18 +322,6 @@
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
       <HintPath>D:/Mine/Project/Unity_Project/ClawFight1/Client/ClawFight/ClawFight/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Runtime.CompilerServices.Unsafe">
-      <HintPath>D:/Mine/Project/Unity_Project/ClawFight1/Client/ClawFight/ClawFight/Assets/Plugin/Google_Protobuf/System.Runtime.CompilerServices.Unsafe.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Memory">
-      <HintPath>D:/Mine/Project/Unity_Project/ClawFight1/Client/ClawFight/ClawFight/Assets/Plugin/Google_Protobuf/System.Memory.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Buffers">
-      <HintPath>D:/Mine/Project/Unity_Project/ClawFight1/Client/ClawFight/ClawFight/Assets/Plugin/Google_Protobuf/System.Buffers.dll</HintPath>
-    </Reference>
-    <Reference Include="Google.Protobuf">
-      <HintPath>D:/Mine/Project/Unity_Project/ClawFight1/Client/ClawFight/ClawFight/Assets/Plugin/Google_Protobuf/Google.Protobuf.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>D:/Program Files/UnityEditor/2018.3.14f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
