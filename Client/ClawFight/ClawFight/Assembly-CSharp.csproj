@@ -77,6 +77,7 @@
     <Compile Include="Assets\Scripts\Player\EntityData.cs" />
     <Compile Include="Assets\Scripts\Player\EntityMonoBase.cs" />
     <Compile Include="Assets\Scripts\Player\LocalPlayer.cs" />
+    <Compile Include="Assets\Scripts\Player\NetPlayer.cs" />
     <Compile Include="Assets\Scripts\Player\Player.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerData.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerManager.cs" />
@@ -90,6 +91,7 @@
     <Compile Include="Assets\Scripts\View\RoomView.cs" />
     <Compile Include="Assets\Scripts\View\ViewBase.cs" />
     <Compile Include="Assets\Scripts\View\ViewManager.cs" />
+    <Compile Include="Assets\XBW\XBW.cs" />
     <None Include="Assets\Plugin\Google_Protobuf\Google.Protobuf.xml" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>D:/Mine/Project/Unity_Project/ClawFight1/Client/ClawFight/ClawFight/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>

@@ -41,4 +41,27 @@ public class ViewManager : ManagerBase<ViewManager>
         }
         return null;
     }
+    public void ShowView(EViewType eViewType) {
+        var v = GetView(eViewType);
+        if (v == null) {
+            return;
+        }
+        v.gameObject.SetActive(true);
+    }
+    public void HideView(EViewType eViewType) {
+        var v = GetView(eViewType);
+        if (v == null)
+        {
+            return;
+        }
+        v.gameObject.SetActive(false);
+    }
+    public void HideHallView()
+    {
+        foreach (var e in viewDict) {
+            if (e.Value.isHall) {
+                HideView(e.Key);
+            }
+        }
+    }
 }

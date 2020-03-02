@@ -10,6 +10,8 @@ public class PlayerManager : ManagerBase<PlayerManager>
     public Player mainPlayer;
     public Dictionary<int, Player> playerDict = new Dictionary<int, Player>();
     public Dictionary<int, Player> playerInRoom_Dict = new Dictionary<int, Player>();
+    public LocalPlayer mainPlayerInBattle;
+    public Dictionary<int, PlayerMonoBase> playerInBattle_Dict = new Dictionary<int, PlayerMonoBase>();
     public override void Init()
     {
         GameManager.instance.AddManager(this);
@@ -122,5 +124,11 @@ public class PlayerManager : ManagerBase<PlayerManager>
             playerDict.Remove(pID);
         }
         playerDict.Add(pID, p);
+    }
+    public void AddPlayerInBattle(PlayerMonoBase p, PlayerData pd) {
+        playerInBattle_Dict.Add(pd.ID, p);
+        if (pd.isMainPlayer) {
+            mainPlayerInBattle = p as LocalPlayer;
+        }
     }
 }
