@@ -6,6 +6,7 @@ public enum EViewType {
     NavigationView,
     HomeView,
     RoomView,
+    LoadingView,
 }
 public enum ETeam
 {
