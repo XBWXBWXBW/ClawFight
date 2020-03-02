@@ -69,6 +69,8 @@
     <Compile Include="Assets\Scripts\Event\EventManager.cs" />
     <Compile Include="Assets\Scripts\Game\GameManager.cs" />
     <Compile Include="Assets\Scripts\Game\ManagerBase.cs" />
+    <Compile Include="Assets\Scripts\Map\Map.cs" />
+    <Compile Include="Assets\Scripts\Map\MapManager.cs" />
     <Compile Include="Assets\Scripts\Message\EMessageType.cs" />
     <Compile Include="Assets\Scripts\Message\Message\Common.cs" />
     <Compile Include="Assets\Scripts\Message\Message\Hall.cs" />

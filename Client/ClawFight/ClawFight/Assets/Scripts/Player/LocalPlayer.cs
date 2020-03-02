@@ -17,12 +17,14 @@ public class LocalPlayer : PlayerMonoBase
     }
     void Update()
     {
-        if (characterController.isGrounded) {
+        if (characterController.isGrounded)
+        {
             moveDirection = new Vector3(Input.GetAxis(HORIZONTAL), 0, Input.GetAxis(VERTICAL));
             moveDirection = transform.TransformDirection(moveDirection);
             moveDirection *= speed;
 
-            if (Input.GetButton(JUMP)) {
+            if (Input.GetButton(JUMP))
+            {
                 moveDirection.y = jumpSpeed;
             }
         }

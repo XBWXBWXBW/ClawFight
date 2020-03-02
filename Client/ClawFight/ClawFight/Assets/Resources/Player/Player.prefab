@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3982145511816767338
 Transform:
   m_ObjectHideFlags: 0
@@ -113,15 +113,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2300022, guid: cfddd8d9dedddf7498565d2d0782c152, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: cfddd8d9dedddf7498565d2d0782c152, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2300016, guid: cfddd8d9dedddf7498565d2d0782c152, type: 3}
+    - target: {fileID: 2300022, guid: cfddd8d9dedddf7498565d2d0782c152, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300014, guid: cfddd8d9dedddf7498565d2d0782c152, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
@@ -129,7 +129,7 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2300014, guid: cfddd8d9dedddf7498565d2d0782c152, type: 3}
+    - target: {fileID: 2300016, guid: cfddd8d9dedddf7498565d2d0782c152, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
@@ -141,15 +141,15 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2300012, guid: cfddd8d9dedddf7498565d2d0782c152, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2300020, guid: cfddd8d9dedddf7498565d2d0782c152, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2300018, guid: cfddd8d9dedddf7498565d2d0782c152, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2300012, guid: cfddd8d9dedddf7498565d2d0782c152, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}

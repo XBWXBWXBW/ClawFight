@@ -17,4 +17,9 @@ public class PlayerMonoBase : EntityMonoBase
     public void SetMaterial(Material mat) {
         skinRender.sharedMaterial = mat;
     }
+
+    public virtual void StartBorn()
+    {
+        transform.position = MapManager.instance.GetRandomPosInMap();
+    }
 }

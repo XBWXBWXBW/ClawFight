@@ -108,6 +108,8 @@ public class GameManager : MonoBehaviour
             else {
                 e.Value.SetMaterial(blueMat);
             }
+            e.Value.StartBorn();
+            e.Value.gameObject.SetActive(true);
         }
 
         SceneLoadDone();
