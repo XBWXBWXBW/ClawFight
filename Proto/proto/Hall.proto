@@ -1,6 +1,7 @@
 syntax = "proto3";
 option java_multiple_files = true;
 
+import "Common.proto";
 package com.coolfish.hotfire.protocol.battle;
 option java_package = "com.coolfish.hotfire.protocol.battle";
 option csharp_namespace = "message";

@@ -44,7 +44,6 @@ namespace ClawFight
                 EventManager.instance.SendEventT(AllEvents.PLAYER_JOIN_GAME, p.playerData.ID);
             }
             catch {
-
             }
         }
         void BeginReceive(Socket pClientSocket)

@@ -25,23 +25,30 @@ namespace message {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "CgpIYWxsLnByb3RvEiRjb20uY29vbGZpc2guaG90ZmlyZS5wcm90b2NvbC5i",
-            "YXR0bGUiHQoNQ1NQX0pvaW5NYXRjaBIMCgR0ZWFtGAEgASgFIlUKClBsYXll",
-            "ckluZm8SEAoIcGxheWVySUQYASABKAUSEAoIaXNJblJvb20YAiABKAgSDAoE",
-            "dGVhbRgDIAEoBRIVCg1pc1JlYWR5VG9QbGF5GAQgASgIIp8BCghTeW5jSW5m",
-            "bxJICg5tYWluUGxheWVySW5mbxgBIAEoCzIwLmNvbS5jb29sZmlzaC5ob3Rm",
-            "aXJlLnByb3RvY29sLmJhdHRsZS5QbGF5ZXJJbmZvEkkKD290aGVyUGxheWVy",
-            "SW5mbxgCIAMoCzIwLmNvbS5jb29sZmlzaC5ob3RmaXJlLnByb3RvY29sLmJh",
-            "dHRsZS5QbGF5ZXJJbmZvIiAKDENTUF9Kb2luUm9vbRIQCghwbGF5ZXJJRBgB",
-            "IAEoBSIgCgxTQ1BfSm9pblJvb20SEAoIcGxheWVySUQYASABKAUiIAoMU0NQ",
-            "X0pvaW5HYW1lEhAKCHBsYXllcklEGAEgASgFIi4KDENTUF9Kb2luVGVhbRIQ",
-            "CghwbGF5ZXJJRBgBIAEoBRIMCgR0ZWFtGAIgASgFIi4KDFNDUF9Kb2luVGVh",
-            "bRIQCghwbGF5ZXJJRBgBIAEoBRIMCgR0ZWFtGAIgASgFIiMKD0NTUF9SZWFk",
-            "eVRvUGxheRIQCghwbGF5ZXJJRBgBIAEoBSIjCg9TQ1BfUmVhZHlUb1BsYXkS",
-            "EAoIcGxheWVySUQYASABKAUiHgoNU0NQX0VudGVyUGxheRINCgVtYXBJRBgB",
-            "IAEoBUIyCiRjb20uY29vbGZpc2guaG90ZmlyZS5wcm90b2NvbC5iYXR0bGVQ",
+            "YXR0bGUaDENvbW1vbi5wcm90byIdCg1DU1BfSm9pbk1hdGNoEgwKBHRlYW0Y",
+            "ASABKAUiVQoKUGxheWVySW5mbxIQCghwbGF5ZXJJRBgBIAEoBRIQCghpc0lu",
+            "Um9vbRgCIAEoCBIMCgR0ZWFtGAMgASgFEhUKDWlzUmVhZHlUb1BsYXkYBCAB",
+            "KAginwEKCFN5bmNJbmZvEkgKDm1haW5QbGF5ZXJJbmZvGAEgASgLMjAuY29t",
+            "LmNvb2xmaXNoLmhvdGZpcmUucHJvdG9jb2wuYmF0dGxlLlBsYXllckluZm8S",
+            "SQoPb3RoZXJQbGF5ZXJJbmZvGAIgAygLMjAuY29tLmNvb2xmaXNoLmhvdGZp",
+            "cmUucHJvdG9jb2wuYmF0dGxlLlBsYXllckluZm8iIAoMQ1NQX0pvaW5Sb29t",
+            "EhAKCHBsYXllcklEGAEgASgFIiAKDFNDUF9Kb2luUm9vbRIQCghwbGF5ZXJJ",
+            "RBgBIAEoBSIgCgxTQ1BfSm9pbkdhbWUSEAoIcGxheWVySUQYASABKAUiLgoM",
+            "Q1NQX0pvaW5UZWFtEhAKCHBsYXllcklEGAEgASgFEgwKBHRlYW0YAiABKAUi",
+            "LgoMU0NQX0pvaW5UZWFtEhAKCHBsYXllcklEGAEgASgFEgwKBHRlYW0YAiAB",
+            "KAUiIwoPQ1NQX1JlYWR5VG9QbGF5EhAKCHBsYXllcklEGAEgASgFIiMKD1ND",
+            "UF9SZWFkeVRvUGxheRIQCghwbGF5ZXJJRBgBIAEoBSIeCg1TQ1BfRW50ZXJQ",
+            "bGF5Eg0KBW1hcElEGAEgASgFImIKDENTUF9Nb3ZlU3luYxIQCghwbGF5ZXJJ",
+            "RBgBIAEoBRJACgZjdXJQb3MYAiABKAsyMC5jb20uY29vbGZpc2guaG90Zmly",
+            "ZS5wcm90b2NvbC5iYXR0bGUuVmVjdG9yM01zZyJoChJQbGF5ZXJNb3ZlU3lu",
+            "Y0luZm8SEAoIcGxheWVySUQYASABKAUSQAoGY3VyUG9zGAIgASgLMjAuY29t",
+            "LmNvb2xmaXNoLmhvdGZpcmUucHJvdG9jb2wuYmF0dGxlLlZlY3RvcjNNc2ci",
+            "XQoMU0NQX01vdmVTeW5jEk0KC2FsbFN5bmNJbmZvGAEgAygLMjguY29tLmNv",
+            "b2xmaXNoLmhvdGZpcmUucHJvdG9jb2wuYmF0dGxlLlBsYXllck1vdmVTeW5j",
+            "SW5mb0IyCiRjb20uY29vbGZpc2guaG90ZmlyZS5wcm90b2NvbC5iYXR0bGVQ",
             "AaoCB21lc3NhZ2ViBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { },
+          new pbr::FileDescriptor[] { global::message.CommonReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::message.CSP_JoinMatch), global::message.CSP_JoinMatch.Parser, new[]{ "Team" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::message.PlayerInfo), global::message.PlayerInfo.Parser, new[]{ "PlayerID", "IsInRoom", "Team", "IsReadyToPlay" }, null, null, null, null),
@@ -53,7 +60,10 @@ namespace message {
             new pbr::GeneratedClrTypeInfo(typeof(global::message.SCP_JoinTeam), global::message.SCP_JoinTeam.Parser, new[]{ "PlayerID", "Team" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::message.CSP_ReadyToPlay), global::message.CSP_ReadyToPlay.Parser, new[]{ "PlayerID" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::message.SCP_ReadyToPlay), global::message.SCP_ReadyToPlay.Parser, new[]{ "PlayerID" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::message.SCP_EnterPlay), global::message.SCP_EnterPlay.Parser, new[]{ "MapID" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::message.SCP_EnterPlay), global::message.SCP_EnterPlay.Parser, new[]{ "MapID" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::message.CSP_MoveSync), global::message.CSP_MoveSync.Parser, new[]{ "PlayerID", "CurPos" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::message.PlayerMoveSyncInfo), global::message.PlayerMoveSyncInfo.Parser, new[]{ "PlayerID", "CurPos" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::message.SCP_MoveSync), global::message.SCP_MoveSync.Parser, new[]{ "AllSyncInfo" }, null, null, null, null)
           }));
     }
     #endregion
@@ -1637,6 +1647,453 @@ namespace message {
             break;
           case 8: {
             MapID = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class CSP_MoveSync : pb::IMessage<CSP_MoveSync> {
+    private static readonly pb::MessageParser<CSP_MoveSync> _parser = new pb::MessageParser<CSP_MoveSync>(() => new CSP_MoveSync());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CSP_MoveSync> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::message.HallReflection.Descriptor.MessageTypes[11]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CSP_MoveSync() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CSP_MoveSync(CSP_MoveSync other) : this() {
+      playerID_ = other.playerID_;
+      curPos_ = other.curPos_ != null ? other.curPos_.Clone() : null;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CSP_MoveSync Clone() {
+      return new CSP_MoveSync(this);
+    }
+
+    /// <summary>Field number for the "playerID" field.</summary>
+    public const int PlayerIDFieldNumber = 1;
+    private int playerID_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int PlayerID {
+      get { return playerID_; }
+      set {
+        playerID_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "curPos" field.</summary>
+    public const int CurPosFieldNumber = 2;
+    private global::message.Vector3Msg curPos_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::message.Vector3Msg CurPos {
+      get { return curPos_; }
+      set {
+        curPos_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as CSP_MoveSync);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(CSP_MoveSync other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (PlayerID != other.PlayerID) return false;
+      if (!object.Equals(CurPos, other.CurPos)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (PlayerID != 0) hash ^= PlayerID.GetHashCode();
+      if (curPos_ != null) hash ^= CurPos.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (PlayerID != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(PlayerID);
+      }
+      if (curPos_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(CurPos);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (PlayerID != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(PlayerID);
+      }
+      if (curPos_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(CurPos);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(CSP_MoveSync other) {
+      if (other == null) {
+        return;
+      }
+      if (other.PlayerID != 0) {
+        PlayerID = other.PlayerID;
+      }
+      if (other.curPos_ != null) {
+        if (curPos_ == null) {
+          CurPos = new global::message.Vector3Msg();
+        }
+        CurPos.MergeFrom(other.CurPos);
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            PlayerID = input.ReadInt32();
+            break;
+          }
+          case 18: {
+            if (curPos_ == null) {
+              CurPos = new global::message.Vector3Msg();
+            }
+            input.ReadMessage(CurPos);
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class PlayerMoveSyncInfo : pb::IMessage<PlayerMoveSyncInfo> {
+    private static readonly pb::MessageParser<PlayerMoveSyncInfo> _parser = new pb::MessageParser<PlayerMoveSyncInfo>(() => new PlayerMoveSyncInfo());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<PlayerMoveSyncInfo> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::message.HallReflection.Descriptor.MessageTypes[12]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public PlayerMoveSyncInfo() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public PlayerMoveSyncInfo(PlayerMoveSyncInfo other) : this() {
+      playerID_ = other.playerID_;
+      curPos_ = other.curPos_ != null ? other.curPos_.Clone() : null;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public PlayerMoveSyncInfo Clone() {
+      return new PlayerMoveSyncInfo(this);
+    }
+
+    /// <summary>Field number for the "playerID" field.</summary>
+    public const int PlayerIDFieldNumber = 1;
+    private int playerID_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int PlayerID {
+      get { return playerID_; }
+      set {
+        playerID_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "curPos" field.</summary>
+    public const int CurPosFieldNumber = 2;
+    private global::message.Vector3Msg curPos_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::message.Vector3Msg CurPos {
+      get { return curPos_; }
+      set {
+        curPos_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as PlayerMoveSyncInfo);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(PlayerMoveSyncInfo other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (PlayerID != other.PlayerID) return false;
+      if (!object.Equals(CurPos, other.CurPos)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (PlayerID != 0) hash ^= PlayerID.GetHashCode();
+      if (curPos_ != null) hash ^= CurPos.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (PlayerID != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(PlayerID);
+      }
+      if (curPos_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(CurPos);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (PlayerID != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(PlayerID);
+      }
+      if (curPos_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(CurPos);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(PlayerMoveSyncInfo other) {
+      if (other == null) {
+        return;
+      }
+      if (other.PlayerID != 0) {
+        PlayerID = other.PlayerID;
+      }
+      if (other.curPos_ != null) {
+        if (curPos_ == null) {
+          CurPos = new global::message.Vector3Msg();
+        }
+        CurPos.MergeFrom(other.CurPos);
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            PlayerID = input.ReadInt32();
+            break;
+          }
+          case 18: {
+            if (curPos_ == null) {
+              CurPos = new global::message.Vector3Msg();
+            }
+            input.ReadMessage(CurPos);
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class SCP_MoveSync : pb::IMessage<SCP_MoveSync> {
+    private static readonly pb::MessageParser<SCP_MoveSync> _parser = new pb::MessageParser<SCP_MoveSync>(() => new SCP_MoveSync());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<SCP_MoveSync> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::message.HallReflection.Descriptor.MessageTypes[13]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SCP_MoveSync() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SCP_MoveSync(SCP_MoveSync other) : this() {
+      allSyncInfo_ = other.allSyncInfo_.Clone();
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SCP_MoveSync Clone() {
+      return new SCP_MoveSync(this);
+    }
+
+    /// <summary>Field number for the "allSyncInfo" field.</summary>
+    public const int AllSyncInfoFieldNumber = 1;
+    private static readonly pb::FieldCodec<global::message.PlayerMoveSyncInfo> _repeated_allSyncInfo_codec
+        = pb::FieldCodec.ForMessage(10, global::message.PlayerMoveSyncInfo.Parser);
+    private readonly pbc::RepeatedField<global::message.PlayerMoveSyncInfo> allSyncInfo_ = new pbc::RepeatedField<global::message.PlayerMoveSyncInfo>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<global::message.PlayerMoveSyncInfo> AllSyncInfo {
+      get { return allSyncInfo_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as SCP_MoveSync);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(SCP_MoveSync other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if(!allSyncInfo_.Equals(other.allSyncInfo_)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      hash ^= allSyncInfo_.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      allSyncInfo_.WriteTo(output, _repeated_allSyncInfo_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      size += allSyncInfo_.CalculateSize(_repeated_allSyncInfo_codec);
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(SCP_MoveSync other) {
+      if (other == null) {
+        return;
+      }
+      allSyncInfo_.Add(other.allSyncInfo_);
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            allSyncInfo_.AddEntriesFrom(input, _repeated_allSyncInfo_codec);
             break;
           }
         }

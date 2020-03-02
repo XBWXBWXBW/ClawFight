@@ -39,6 +39,15 @@ case EMessageType.SCP_ReadyToPlay:
 case EMessageType.SCP_EnterPlay:
                 message = new message.SCP_EnterPlay();
                 break;
+case EMessageType.CSP_MoveSync:
+                message = new message.CSP_MoveSync();
+                break;
+case EMessageType.PlayerMoveSyncInfo:
+                message = new message.PlayerMoveSyncInfo();
+                break;
+case EMessageType.SCP_MoveSync:
+                message = new message.SCP_MoveSync();
+                break;
 
         }
         return message;
