@@ -37,7 +37,7 @@ public class PlayerManager : ManagerBase<PlayerManager>
         if (playerInRoom_Dict.ContainsKey(_id)) {
             playerInRoom_Dict[_id].playerData.isReady = true;
         }
-        if (playerDict[_id].playerData.isReady) {
+        if (_id == mainPlayer.playerData.ID && playerDict[_id].playerData.isReady) {
             EventManager.instance.SendEvent(HallEvents.HALLEVENT_PLAYER_READY_TO_PLAY);
         }
     }

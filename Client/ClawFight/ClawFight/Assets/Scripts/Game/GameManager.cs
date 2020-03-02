@@ -9,6 +9,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public bool isQuickEnter = false;
+    public float rotateXSense = 1, rotateYSense = 1;
     public GameObject canvas;
     public List<GameObject> donotDestroy = new List<GameObject>();
     public List<string> mapPathList = new List<string>();
@@ -116,6 +117,10 @@ public class GameManager : MonoBehaviour
     }
     private void SceneLoadDone() {
         ViewManager.instance.HideView(EViewType.LoadingView);
+
+        EventManager.instance.SendEvent(BattleEvents.BATTLEEVENT_BATTLE_START);
+
+        Cursor.visible = false;
     }
     // Update is called once per frame
     void Update()

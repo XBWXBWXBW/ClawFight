@@ -54,3 +54,17 @@ message SCP_ReadyToPlay{
 message SCP_EnterPlay{
 	int32 mapID = 1;
 }
+
+message CSP_MoveSync{
+	int32 playerID = 1;
+	Vector3Msg curPos = 2;
+}
+
+message PlayerMoveSyncInfo{
+	int32 playerID = 1;
+	Vector3Msg curPos = 2;
+}
+
+message SCP_MoveSync{
+	repeated PlayerMoveSyncInfo allSyncInfo = 1;
+}

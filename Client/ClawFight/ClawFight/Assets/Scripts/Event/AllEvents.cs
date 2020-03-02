@@ -12,3 +12,7 @@ public class HallEvents
     public const string HALLEVENT_PLAYER_READY_TO_PLAY = "HallEvent_Player_Ready_To_Play";
     public const string HALLEVENT_ENTER_PLAY = "HallEvent_Enter_Play";
 }
+
+public class BattleEvents {
+    public const string BATTLEEVENT_BATTLE_START = "BattleEvent_Battle_Start";
+}

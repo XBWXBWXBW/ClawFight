@@ -22,7 +22,7 @@ public class MapManager : ManagerBase<MapManager>
     {
         base.OnDestroy();
     }
-    public Vector3 GetRandomPosInMap() {
-        return curMap.GetRandomPos();
+    public Vector3 GetRandomPosInMap(ETeam eTeam) {
+        return curMap.GetRandomPos(eTeam);
     }
 }

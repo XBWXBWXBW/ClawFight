@@ -20,6 +20,6 @@ public class PlayerMonoBase : EntityMonoBase
 
     public virtual void StartBorn()
     {
-        transform.position = MapManager.instance.GetRandomPosInMap();
+        transform.position = MapManager.instance.GetRandomPosInMap(playerData.eTeam);
     }
 }

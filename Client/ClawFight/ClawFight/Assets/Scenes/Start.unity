@@ -415,6 +415,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isQuickEnter: 0
+  rotateXSense: 10
+  rotateYSense: 1
   canvas: {fileID: 1154431559}
   donotDestroy:
   - {fileID: 534669902}
