@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Google.Protobuf;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,10 +9,10 @@ public enum EConnectType
 }
 public class ConnectManager : ManagerBase<ConnectManager>
 {
-    public void Connect(EConnectType connectType) {
-        switch (connectType) {
-            case EConnectType.TCP:
-                break;
-        }
+    public ConnectProxy connectProxy;
+    public override void Init()
+    {
+        base.Init();
+        connectProxy = new ConnectProxy();
     }
 }

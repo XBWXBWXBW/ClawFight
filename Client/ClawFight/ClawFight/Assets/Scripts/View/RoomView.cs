@@ -104,7 +104,7 @@ public class RoomView : ViewBase
         CSP_JoinTeam msg = new CSP_JoinTeam();
         msg.PlayerID = PlayerManager.instance.mainPlayer.playerData.ID;
         msg.Team = (int)eTeam;
-        GameManager.instance.connectProxy.SendMessage(EMessageType.CSP_JoinTeam, msg);
+        ConnectManager.instance.connectProxy.SendMessage(EMessageType.CSP_JoinTeam, msg);
     }
     public void ReadyToPlay_Yes_No() {
         PlayerData pd = PlayerManager.instance.mainPlayer.playerData;
@@ -114,7 +114,7 @@ public class RoomView : ViewBase
         
         CSP_ReadyToPlay msg = new CSP_ReadyToPlay();
         msg.PlayerID = pd.ID;
-        GameManager.instance.connectProxy.SendMessage(EMessageType.CSP_ReadyToPlay, msg);
+        ConnectManager.instance.connectProxy.SendMessage(EMessageType.CSP_ReadyToPlay, msg);
     }
     
 }

@@ -31,7 +31,7 @@ public class HomeView : ViewBase
         joinRoomButton.SetActive(true);
     }
     public void StartConnect() {
-        GameManager.instance.connectProxy.Connect();
+        ConnectManager.instance.connectProxy.Connect();
         startConnectButton.SetActive(false);
         waitConnect.SetActive(true);
     }
@@ -39,7 +39,7 @@ public class HomeView : ViewBase
     {
         CSP_JoinRoom msg = new CSP_JoinRoom();
         msg.PlayerID = PlayerManager.instance.mainPlayer.playerData.ID;
-        GameManager.instance.connectProxy.SendMessage(EMessageType.CSP_JoinRoom, msg);
+        ConnectManager.instance.connectProxy.SendMessage(EMessageType.CSP_JoinRoom, msg);
 
         joinRoomButton.SetActive(false);
 

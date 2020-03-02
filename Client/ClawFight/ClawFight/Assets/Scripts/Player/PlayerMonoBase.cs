@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using message;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -21,5 +22,21 @@ public class PlayerMonoBase : EntityMonoBase
     public virtual void StartBorn()
     {
         transform.position = MapManager.instance.GetRandomPosInMap(playerData.eTeam);
+    }
+    private void Update()
+    {
+        OnUpdate();
+        CSP_MoveSync msg = new CSP_MoveSync() {
+            PlayerID = playerData.ID,
+            CurPos = new Vector3Msg() {
+                X = transform.position.x,
+                Y = transform.position.y,
+                Z = transform.position.z,
+            } ,
+        };
+        
+    }
+    protected virtual void OnUpdate() {
+
     }
 }

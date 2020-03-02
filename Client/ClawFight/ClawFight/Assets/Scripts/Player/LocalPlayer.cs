@@ -21,8 +21,9 @@ public class LocalPlayer : PlayerMonoBase
             transform = transform,
         };
     }
-    void Update()
+    protected override void OnUpdate()
     {
+        base.OnUpdate();
         moveComponent.Update();
     }
 }

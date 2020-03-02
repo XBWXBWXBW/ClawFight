@@ -15,7 +15,6 @@ public class GameManager : MonoBehaviour
     public List<string> mapPathList = new List<string>();
     public static GameManager instance;
     public MatchProxy matchProxy;
-    public ConnectProxy connectProxy;
     public List<IEnumerator> tasks = new List<IEnumerator>();
     public List<IEnumerator> removeTasks = new List<IEnumerator>();
     private List<IManager> managerList = new List<IManager>();
@@ -29,7 +28,6 @@ public class GameManager : MonoBehaviour
         instance = this;
 
         matchProxy = new MatchProxy();
-        connectProxy = new ConnectProxy();
         PlayerManager.instance.Init();
         ViewManager.instance.canvas = canvas;
         ViewManager.instance.Init();
