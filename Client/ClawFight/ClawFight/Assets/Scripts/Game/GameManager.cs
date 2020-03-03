@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     public List<string> mapPathList = new List<string>();
     public static GameManager instance;
     public MatchProxy matchProxy;
+    [HideInInspector]
+    public float gameTime = -1;
     //public List<IEnumerator> tasks = new List<IEnumerator>();
     //public List<IEnumerator> removeTasks = new List<IEnumerator>();
     //public List<IEnumerator> candidateTasks = new List<IEnumerator>();

@@ -13,4 +13,6 @@ SCP_EnterPlay=11,
 CSP_MoveSync=12,
 PlayerMoveSyncInfo=13,
 SCP_MoveSync=14,
+CSP_BeginPlay=15,
+SCP_BeginPlay=16,
 }

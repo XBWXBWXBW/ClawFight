@@ -71,3 +71,11 @@ message PlayerMoveSyncInfo{
 message SCP_MoveSync{
 	PlayerMoveSyncInfo allSyncInfo = 1;
 }
+
+message CSP_BeginPlay{
+	int32 playerID = 1;
+}
+
+message SCP_BeginPlay{
+	float time = 1;
+}

@@ -48,6 +48,12 @@ case EMessageType.PlayerMoveSyncInfo:
 case EMessageType.SCP_MoveSync:
                 message = new message.SCP_MoveSync();
                 break;
+case EMessageType.CSP_BeginPlay:
+                message = new message.CSP_BeginPlay();
+                break;
+case EMessageType.SCP_BeginPlay:
+                message = new message.SCP_BeginPlay();
+                break;
 
         }
         return message;
