@@ -8,6 +8,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public Camera viewCam;
     public bool isQuickEnter = false;
     public float rotateXSense = 1, rotateYSense = 1;
     public GameObject canvas;
@@ -56,6 +57,8 @@ public class GameManager : MonoBehaviour
 
     private void OnBeginPlay(IMessage obj)
     {
+        viewCam.clearFlags = CameraClearFlags.Depth;
+
         ViewManager.instance.HideView(EViewType.LoadingView);
 
         EventManager.instance.SendEvent(BattleEvents.BATTLEEVENT_BATTLE_START);

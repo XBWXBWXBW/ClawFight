@@ -11,5 +11,6 @@ namespace ClawFight
     {
         public ETeam team = ETeam.None;
         public bool isReady = false;
+        public bool isLoadDone = false;
     }
 }

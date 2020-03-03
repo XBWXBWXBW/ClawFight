@@ -25,6 +25,7 @@ namespace ClawFight
             EventManager.instance.RegistProto(EMessageType.CSP_JoinTeam, OnJoinTeam);
             EventManager.instance.RegistProto(EMessageType.CSP_ReadyToPlay, OnReadToPlay);
             EventManager.instance.RegistProto(EMessageType.CSP_MoveSync, OnMoveSync);
+            EventManager.instance.RegistProto(EMessageType.CSP_BeginPlay, OnBeginPlay);
 
             EventManager.instance.RegistEventT<int>(AllEvents.PLAYER_JOIN_GAME, OnPlayerJoinGame);
             EventManager.instance.RegistEventT<int>(AllEvents.SYNC_INFO, OnSyncInfo);
@@ -36,9 +37,39 @@ namespace ClawFight
             EventManager.instance.UnRegistProto(EMessageType.CSP_JoinTeam, OnJoinTeam);
             EventManager.instance.UnRegistProto(EMessageType.CSP_ReadyToPlay, OnReadToPlay);
             EventManager.instance.UnRegistProto(EMessageType.CSP_MoveSync, OnMoveSync);
+            EventManager.instance.UnRegistProto(EMessageType.CSP_BeginPlay, OnBeginPlay);
 
             EventManager.instance.UnRegistEventT<int>(AllEvents.PLAYER_JOIN_GAME, OnPlayerJoinGame);
             EventManager.instance.UnRegistEventT<int>(AllEvents.SYNC_INFO, OnSyncInfo);
+        }
+
+        private void OnBeginPlay(IMessage obj)
+        {
+            CSP_BeginPlay msg = obj as CSP_BeginPlay;
+            int _id = msg.PlayerID;
+            Player p = playerInRoom[_id];
+            PlayerData pd = p.playerData;
+            if (pd.isReady) pd.isLoadDone = true;
+            bool _ready = true;
+            foreach (var e in playerInRoom) {
+                PlayerData epd = e.Value.playerData;
+                if (epd.isReady && !epd.isLoadDone) {
+                    _ready = false;
+                    break;
+                }
+            }
+            if (_ready) {
+                SCP_BeginPlay _msg = new SCP_BeginPlay();
+                foreach (var e in playerInRoom) {
+                    Player ep = e.Value;
+                    PlayerData epd = ep.playerData;
+                    if (epd.isReady)
+                    {
+
+                        ConnectManager.instance.tcpConnect.SendMessage(ep, _msg, (int)EMessageType.SCP_BeginPlay);
+                    }
+                }
+            }
         }
 
         private void OnMoveSync(IMessage obj)
