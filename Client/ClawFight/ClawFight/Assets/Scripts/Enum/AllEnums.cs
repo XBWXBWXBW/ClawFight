@@ -8,6 +8,9 @@ public enum EViewType {
     RoomView,
     LoadingView,
 }
+public enum EViewCatalog {
+    All,Hall,Battle
+}
 public enum ETeam
 {
     None, TeamA, TeamB,

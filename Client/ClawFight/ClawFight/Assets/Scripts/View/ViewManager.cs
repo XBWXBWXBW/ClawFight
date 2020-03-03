@@ -28,7 +28,7 @@ public class ViewManager : ManagerBase<ViewManager>
     private void OnEnterPlay()
     {
         foreach (var e in viewDict) {
-            if (e.Value.isHall)
+            if (e.Value.viewCatalog == EViewCatalog.Hall)
             {
                 e.Value.gameObject.SetActive(false);
             }
@@ -59,7 +59,7 @@ public class ViewManager : ManagerBase<ViewManager>
     public void HideHallView()
     {
         foreach (var e in viewDict) {
-            if (e.Value.isHall) {
+            if (e.Value.viewCatalog == EViewCatalog.Hall) {
                 HideView(e.Key);
             }
         }

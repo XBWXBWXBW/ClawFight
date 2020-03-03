@@ -15,7 +15,7 @@ public class TcpConnect : ConnectBase
     public void Start() {
         tcpSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 
-        IPEndPoint endPoint = new IPEndPoint(IPAddress.Parse("172.20.16.71"), 50001);
+        IPEndPoint endPoint = new IPEndPoint(IPAddress.Parse(GameManager.instance.ipAddress), 50001);
         try
         {
             tcpSocket.BeginConnect(endPoint, EndConnect, tcpSocket);

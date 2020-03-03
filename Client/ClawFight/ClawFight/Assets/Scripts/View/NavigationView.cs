@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class NavigationView : ViewBase
 {
     public Text IDText;
+    public Text pingText;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +23,7 @@ public class NavigationView : ViewBase
     // Update is called once per frame
     void Update()
     {
-        
+        pingText.text = GameManager.instance.pingTime.ToString();
     }
     void OnSyncInfo() {
         IDText.text = PlayerManager.instance.mainPlayer.playerData.ID.ToString();

@@ -8,6 +8,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public string ipAddress = "172.20.16.71";
     public Camera viewCam;
     public bool isQuickEnter = false;
     public float rotateXSense = 1, rotateYSense = 1;
@@ -137,8 +138,34 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        UpdateTask();
+        UpdatePing();
+    }
+    private float pingCurTime = 0;
+    private float pingDelta = 0.1f;
+    private Ping ping;
+    public float pingTime = 0.0f;
+    void UpdatePing() {
+        if (ping == null)
+        {
+            pingCurTime += Time.deltaTime;
+            if (pingCurTime >= pingDelta)
+            {
+                ping = new Ping(ipAddress);
+            }
+        }
+        else {
+            if (ping.isDone) {
+                pingTime = ping.time;
+                ping.DestroyPing();
+                ping = null;
+            }
+        }
+    }
+    void UpdateTask() {
         LinkedListNode<IEnumerator> node = tasks.First;
-        while (node != null) {
+        while (node != null)
+        {
             IEnumerator v = node.Value;
             if (!v.MoveNext())
             {
@@ -146,28 +173,11 @@ public class GameManager : MonoBehaviour
                 node = node.Next;
                 tasks.Remove(pre);
             }
-            else {
+            else
+            {
                 node = node.Next;
             }
         }
-        //while (candidateTasks.Count != 0) {
-        //    IEnumerator e = candidateTasks[0];
-        //    candidateTasks.RemoveAt(0);
-        //    tasks.Add(e);
-        //}
-        //candidateTasks.Clear();
-        //foreach (var t in tasks)
-        //{
-        //    if (!t.MoveNext())
-        //    {
-        //        removeTasks.Add(t);
-        //    }
-        //}
-        //foreach (var t in removeTasks)
-        //{
-        //    tasks.Remove(t);
-        //}
-        //removeTasks.Clear();
     }
     public void AddManager(IManager m) {
         if (!managerList.Contains(m)) {
