@@ -46,10 +46,21 @@ public class GameManager : MonoBehaviour
     private void OnEnable()
     {
         EventManager.instance.RegistProto(EMessageType.SCP_EnterPlay, OnEnterPlay);
+        EventManager.instance.RegistProto(EMessageType.SCP_BeginPlay, OnBeginPlay);
     }
     private void OnDisable()
     {
         EventManager.instance.UnRegistProto(EMessageType.SCP_EnterPlay, OnEnterPlay);
+        EventManager.instance.UnRegistProto(EMessageType.SCP_BeginPlay, OnBeginPlay);
+    }
+
+    private void OnBeginPlay(IMessage obj)
+    {
+        ViewManager.instance.HideView(EViewType.LoadingView);
+
+        EventManager.instance.SendEvent(BattleEvents.BATTLEEVENT_BATTLE_START);
+
+        Cursor.visible = false;
     }
 
     private void OnEnterPlay(IMessage obj)
@@ -116,11 +127,9 @@ public class GameManager : MonoBehaviour
         SceneLoadDone();
     }
     private void SceneLoadDone() {
-        ViewManager.instance.HideView(EViewType.LoadingView);
-
-        EventManager.instance.SendEvent(BattleEvents.BATTLEEVENT_BATTLE_START);
-
-        Cursor.visible = false;
+        CSP_BeginPlay msg = new CSP_BeginPlay();
+        msg.PlayerID = PlayerManager.instance.mainPlayerInBattle.playerData.ID;
+        ConnectManager.instance.connectProxy.SendMessage(EMessageType.CSP_BeginPlay, msg);
     }
     // Update is called once per frame
     void Update()
