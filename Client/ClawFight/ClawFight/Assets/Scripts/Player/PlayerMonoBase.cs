@@ -14,6 +14,16 @@ public class PlayerMonoBase : EntityMonoBase
         }
     }
     public PlayerData playerData;
+
+    private void Start()
+    {
+        OnStart();
+    }
+    protected virtual void OnStart()
+    {
+
+    }
+
     public void SetMaterial(Material mat) {
         skinRender.sharedMaterial = mat;
     }

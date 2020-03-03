@@ -54,6 +54,12 @@ case EMessageType.CSP_BeginPlay:
 case EMessageType.SCP_BeginPlay:
                 message = new message.SCP_BeginPlay();
                 break;
+case EMessageType.CSP_Ping:
+                message = new message.CSP_Ping();
+                break;
+case EMessageType.SCP_Ping:
+                message = new message.SCP_Ping();
+                break;
 
         }
         return message;

@@ -79,3 +79,11 @@ message CSP_BeginPlay{
 message SCP_BeginPlay{
 	float time = 1;
 }
+
+message CSP_Ping{
+	
+}
+
+message SCP_Ping{
+	
+}
