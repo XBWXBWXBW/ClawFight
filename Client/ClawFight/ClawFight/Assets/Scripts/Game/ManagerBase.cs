@@ -14,6 +14,7 @@ public class ManagerBase<T> : IManager where T : ManagerBase<T>, new ()
         get {
             if (_instance == null) {
                 _instance = new T();
+                _instance.Init();
             }
             return _instance;
         }

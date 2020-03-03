@@ -67,5 +67,5 @@ message PlayerMoveSyncInfo{
 }
 
 message SCP_MoveSync{
-	repeated PlayerMoveSyncInfo allSyncInfo = 1;
+	PlayerMoveSyncInfo allSyncInfo = 1;
 }

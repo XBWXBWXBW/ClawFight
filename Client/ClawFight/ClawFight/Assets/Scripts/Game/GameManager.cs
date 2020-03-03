@@ -15,13 +15,15 @@ public class GameManager : MonoBehaviour
     public List<string> mapPathList = new List<string>();
     public static GameManager instance;
     public MatchProxy matchProxy;
-    public List<IEnumerator> tasks = new List<IEnumerator>();
-    public List<IEnumerator> removeTasks = new List<IEnumerator>();
+    //public List<IEnumerator> tasks = new List<IEnumerator>();
+    //public List<IEnumerator> removeTasks = new List<IEnumerator>();
+    //public List<IEnumerator> candidateTasks = new List<IEnumerator>();
+    public LinkedList<IEnumerator> tasks = new LinkedList<IEnumerator>();
     private List<IManager> managerList = new List<IManager>();
     private string playerPrefabPath = @"Player/Player";
     private string redMaterialPath = @"PlayerMat/Red";
     private string blueMaterialPath = @"PlayerMat/Blue";
-    
+    private object obj_lock = new object();
     // Start is called before the first frame update
     void Start()
     {
@@ -29,8 +31,6 @@ public class GameManager : MonoBehaviour
 
         matchProxy = new MatchProxy();
         PlayerManager.instance.Init();
-        ViewManager.instance.canvas = canvas;
-        ViewManager.instance.Init();
 
         for (int i = 0; i < donotDestroy.Count; i++) {
             GameManager.DontDestroyOnLoad(donotDestroy[i]);
@@ -123,15 +123,37 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        foreach (var t in tasks) {
-            if (!t.MoveNext()) {
-                removeTasks.Add(t);
+        LinkedListNode<IEnumerator> node = tasks.First;
+        while (node != null) {
+            IEnumerator v = node.Value;
+            if (!v.MoveNext())
+            {
+                var pre = node;
+                node = node.Next;
+                tasks.Remove(pre);
+            }
+            else {
+                node = node.Next;
             }
         }
-        foreach (var t in removeTasks) {
-            tasks.Remove(t);
-        }
-        removeTasks.Clear();
+        //while (candidateTasks.Count != 0) {
+        //    IEnumerator e = candidateTasks[0];
+        //    candidateTasks.RemoveAt(0);
+        //    tasks.Add(e);
+        //}
+        //candidateTasks.Clear();
+        //foreach (var t in tasks)
+        //{
+        //    if (!t.MoveNext())
+        //    {
+        //        removeTasks.Add(t);
+        //    }
+        //}
+        //foreach (var t in removeTasks)
+        //{
+        //    tasks.Remove(t);
+        //}
+        //removeTasks.Clear();
     }
     public void AddManager(IManager m) {
         if (!managerList.Contains(m)) {

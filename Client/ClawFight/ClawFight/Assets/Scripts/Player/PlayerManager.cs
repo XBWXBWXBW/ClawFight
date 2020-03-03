@@ -20,6 +20,7 @@ public class PlayerManager : ManagerBase<PlayerManager>
         EventManager.instance.RegistProto(EMessageType.SCP_JoinGame, OnPlayerJoinGame);
         EventManager.instance.RegistProto(EMessageType.SCP_JoinTeam, OnPlayerJoinTeam);
         EventManager.instance.RegistProto(EMessageType.SCP_ReadyToPlay, OnPlayerReadyToPlay);
+        EventManager.instance.RegistProto(EMessageType.SCP_MoveSync, OnMoveSync);
     }
     public override void OnDestroy()
     {
@@ -28,6 +29,20 @@ public class PlayerManager : ManagerBase<PlayerManager>
         EventManager.instance.UnRegistProto(EMessageType.SCP_JoinGame, OnPlayerJoinGame);
         EventManager.instance.UnRegistProto(EMessageType.SCP_JoinTeam, OnPlayerJoinTeam);
         EventManager.instance.UnRegistProto(EMessageType.SCP_ReadyToPlay, OnPlayerReadyToPlay);
+        EventManager.instance.UnRegistProto(EMessageType.SCP_MoveSync, OnMoveSync);
+    }
+
+    private void OnMoveSync(IMessage obj)
+    {
+        SCP_MoveSync msg = obj as SCP_MoveSync;
+        PlayerMoveSyncInfo pmsi = msg.AllSyncInfo;
+        if (playerInBattle_Dict.ContainsKey(pmsi.PlayerID)) {
+            PlayerMonoBase p = playerInBattle_Dict[pmsi.PlayerID];
+            if (!p.playerData.isMainPlayer) {
+                NetPlayer np = p as NetPlayer;
+                np.UpdatePos(pmsi);
+            }
+        }
     }
 
     private void OnPlayerReadyToPlay(IMessage obj)

@@ -10,7 +10,7 @@ public class ViewManager : ManagerBase<ViewManager>
     public override void Init()
     {
         base.Init();
-        
+        canvas = GameManager.instance.canvas;
         ViewBase[] _v = canvas.GetComponentsInChildren<ViewBase>(true);
         for (int i = 0; i < _v.Length; i++)
         {

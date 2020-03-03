@@ -24,6 +24,7 @@ namespace ClawFight
             EventManager.instance.RegistProto(EMessageType.CSP_JoinRoom, OnOtherJoinRoom);
             EventManager.instance.RegistProto(EMessageType.CSP_JoinTeam, OnJoinTeam);
             EventManager.instance.RegistProto(EMessageType.CSP_ReadyToPlay, OnReadToPlay);
+            EventManager.instance.RegistProto(EMessageType.CSP_MoveSync, OnMoveSync);
 
             EventManager.instance.RegistEventT<int>(AllEvents.PLAYER_JOIN_GAME, OnPlayerJoinGame);
             EventManager.instance.RegistEventT<int>(AllEvents.SYNC_INFO, OnSyncInfo);
@@ -34,10 +35,28 @@ namespace ClawFight
             EventManager.instance.UnRegistProto(EMessageType.CSP_JoinRoom, OnOtherJoinRoom);
             EventManager.instance.UnRegistProto(EMessageType.CSP_JoinTeam, OnJoinTeam);
             EventManager.instance.UnRegistProto(EMessageType.CSP_ReadyToPlay, OnReadToPlay);
+            EventManager.instance.UnRegistProto(EMessageType.CSP_MoveSync, OnMoveSync);
 
             EventManager.instance.UnRegistEventT<int>(AllEvents.PLAYER_JOIN_GAME, OnPlayerJoinGame);
             EventManager.instance.UnRegistEventT<int>(AllEvents.SYNC_INFO, OnSyncInfo);
         }
+
+        private void OnMoveSync(IMessage obj)
+        {
+            CSP_MoveSync msgClient = obj as CSP_MoveSync;
+            SCP_MoveSync msg = new SCP_MoveSync();
+            PlayerMoveSyncInfo pmsi = new PlayerMoveSyncInfo() {
+                PlayerID = msgClient.PlayerID,
+                CurPos = msgClient.CurPos,
+            };
+            msg.AllSyncInfo = pmsi;
+            foreach (var e in playerInRoom) {
+                if (e.Value.playerData.isReady) {
+                    ConnectManager.instance.tcpConnect.SendMessage(e.Value, msg, (int)EMessageType.SCP_MoveSync);
+                }
+            }
+        }
+
         private void OnReadToPlay(IMessage obj)
         {
             CSP_ReadyToPlay msg = obj as CSP_ReadyToPlay;

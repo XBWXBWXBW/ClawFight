@@ -43,7 +43,7 @@ namespace message {
             "ZS5wcm90b2NvbC5iYXR0bGUuVmVjdG9yM01zZyJoChJQbGF5ZXJNb3ZlU3lu",
             "Y0luZm8SEAoIcGxheWVySUQYASABKAUSQAoGY3VyUG9zGAIgASgLMjAuY29t",
             "LmNvb2xmaXNoLmhvdGZpcmUucHJvdG9jb2wuYmF0dGxlLlZlY3RvcjNNc2ci",
-            "XQoMU0NQX01vdmVTeW5jEk0KC2FsbFN5bmNJbmZvGAEgAygLMjguY29tLmNv",
+            "XQoMU0NQX01vdmVTeW5jEk0KC2FsbFN5bmNJbmZvGAEgASgLMjguY29tLmNv",
             "b2xmaXNoLmhvdGZpcmUucHJvdG9jb2wuYmF0dGxlLlBsYXllck1vdmVTeW5j",
             "SW5mb0IyCiRjb20uY29vbGZpc2guaG90ZmlyZS5wcm90b2NvbC5iYXR0bGVQ",
             "AaoCB21lc3NhZ2ViBnByb3RvMw=="));
@@ -2006,7 +2006,7 @@ namespace message {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public SCP_MoveSync(SCP_MoveSync other) : this() {
-      allSyncInfo_ = other.allSyncInfo_.Clone();
+      allSyncInfo_ = other.allSyncInfo_ != null ? other.allSyncInfo_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -2017,12 +2017,13 @@ namespace message {
 
     /// <summary>Field number for the "allSyncInfo" field.</summary>
     public const int AllSyncInfoFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::message.PlayerMoveSyncInfo> _repeated_allSyncInfo_codec
-        = pb::FieldCodec.ForMessage(10, global::message.PlayerMoveSyncInfo.Parser);
-    private readonly pbc::RepeatedField<global::message.PlayerMoveSyncInfo> allSyncInfo_ = new pbc::RepeatedField<global::message.PlayerMoveSyncInfo>();
+    private global::message.PlayerMoveSyncInfo allSyncInfo_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::message.PlayerMoveSyncInfo> AllSyncInfo {
+    public global::message.PlayerMoveSyncInfo AllSyncInfo {
       get { return allSyncInfo_; }
+      set {
+        allSyncInfo_ = value;
+      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2038,14 +2039,14 @@ namespace message {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if(!allSyncInfo_.Equals(other.allSyncInfo_)) return false;
+      if (!object.Equals(AllSyncInfo, other.AllSyncInfo)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      hash ^= allSyncInfo_.GetHashCode();
+      if (allSyncInfo_ != null) hash ^= AllSyncInfo.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -2059,7 +2060,10 @@ namespace message {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      allSyncInfo_.WriteTo(output, _repeated_allSyncInfo_codec);
+      if (allSyncInfo_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(AllSyncInfo);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -2068,7 +2072,9 @@ namespace message {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      size += allSyncInfo_.CalculateSize(_repeated_allSyncInfo_codec);
+      if (allSyncInfo_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(AllSyncInfo);
+      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -2080,7 +2086,12 @@ namespace message {
       if (other == null) {
         return;
       }
-      allSyncInfo_.Add(other.allSyncInfo_);
+      if (other.allSyncInfo_ != null) {
+        if (allSyncInfo_ == null) {
+          AllSyncInfo = new global::message.PlayerMoveSyncInfo();
+        }
+        AllSyncInfo.MergeFrom(other.AllSyncInfo);
+      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -2093,7 +2104,10 @@ namespace message {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            allSyncInfo_.AddEntriesFrom(input, _repeated_allSyncInfo_codec);
+            if (allSyncInfo_ == null) {
+              AllSyncInfo = new global::message.PlayerMoveSyncInfo();
+            }
+            input.ReadMessage(AllSyncInfo);
             break;
           }
         }

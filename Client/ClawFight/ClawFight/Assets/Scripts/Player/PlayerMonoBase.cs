@@ -34,7 +34,7 @@ public class PlayerMonoBase : EntityMonoBase
                 Z = transform.position.z,
             } ,
         };
-        
+        ConnectManager.instance.connectProxy.SendMessage(EMessageType.CSP_MoveSync, msg);
     }
     protected virtual void OnUpdate() {
 
