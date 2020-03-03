@@ -1,5 +1,4 @@
-﻿using message;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -26,15 +25,6 @@ public class PlayerMonoBase : EntityMonoBase
     private void Update()
     {
         OnUpdate();
-        CSP_MoveSync msg = new CSP_MoveSync() {
-            PlayerID = playerData.ID,
-            CurPos = new Vector3Msg() {
-                X = transform.position.x,
-                Y = transform.position.y,
-                Z = transform.position.z,
-            } ,
-        };
-        ConnectManager.instance.connectProxy.SendMessage(EMessageType.CSP_MoveSync, msg);
     }
     protected virtual void OnUpdate() {
 

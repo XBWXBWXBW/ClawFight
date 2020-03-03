@@ -38,15 +38,16 @@ namespace message {
             "LgoMU0NQX0pvaW5UZWFtEhAKCHBsYXllcklEGAEgASgFEgwKBHRlYW0YAiAB",
             "KAUiIwoPQ1NQX1JlYWR5VG9QbGF5EhAKCHBsYXllcklEGAEgASgFIiMKD1ND",
             "UF9SZWFkeVRvUGxheRIQCghwbGF5ZXJJRBgBIAEoBSIeCg1TQ1BfRW50ZXJQ",
-            "bGF5Eg0KBW1hcElEGAEgASgFImIKDENTUF9Nb3ZlU3luYxIQCghwbGF5ZXJJ",
+            "bGF5Eg0KBW1hcElEGAEgASgFInAKDENTUF9Nb3ZlU3luYxIQCghwbGF5ZXJJ",
             "RBgBIAEoBRJACgZjdXJQb3MYAiABKAsyMC5jb20uY29vbGZpc2guaG90Zmly",
-            "ZS5wcm90b2NvbC5iYXR0bGUuVmVjdG9yM01zZyJoChJQbGF5ZXJNb3ZlU3lu",
-            "Y0luZm8SEAoIcGxheWVySUQYASABKAUSQAoGY3VyUG9zGAIgASgLMjAuY29t",
-            "LmNvb2xmaXNoLmhvdGZpcmUucHJvdG9jb2wuYmF0dGxlLlZlY3RvcjNNc2ci",
-            "XQoMU0NQX01vdmVTeW5jEk0KC2FsbFN5bmNJbmZvGAEgASgLMjguY29tLmNv",
-            "b2xmaXNoLmhvdGZpcmUucHJvdG9jb2wuYmF0dGxlLlBsYXllck1vdmVTeW5j",
-            "SW5mb0IyCiRjb20uY29vbGZpc2guaG90ZmlyZS5wcm90b2NvbC5iYXR0bGVQ",
-            "AaoCB21lc3NhZ2ViBnByb3RvMw=="));
+            "ZS5wcm90b2NvbC5iYXR0bGUuVmVjdG9yM01zZxIMCgR0aW1lGAMgASgCInYK",
+            "ElBsYXllck1vdmVTeW5jSW5mbxIQCghwbGF5ZXJJRBgBIAEoBRJACgZjdXJQ",
+            "b3MYAiABKAsyMC5jb20uY29vbGZpc2guaG90ZmlyZS5wcm90b2NvbC5iYXR0",
+            "bGUuVmVjdG9yM01zZxIMCgR0aW1lGAMgASgCIl0KDFNDUF9Nb3ZlU3luYxJN",
+            "CgthbGxTeW5jSW5mbxgBIAEoCzI4LmNvbS5jb29sZmlzaC5ob3RmaXJlLnBy",
+            "b3RvY29sLmJhdHRsZS5QbGF5ZXJNb3ZlU3luY0luZm9CMgokY29tLmNvb2xm",
+            "aXNoLmhvdGZpcmUucHJvdG9jb2wuYmF0dGxlUAGqAgdtZXNzYWdlYgZwcm90",
+            "bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::message.CommonReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -61,8 +62,8 @@ namespace message {
             new pbr::GeneratedClrTypeInfo(typeof(global::message.CSP_ReadyToPlay), global::message.CSP_ReadyToPlay.Parser, new[]{ "PlayerID" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::message.SCP_ReadyToPlay), global::message.SCP_ReadyToPlay.Parser, new[]{ "PlayerID" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::message.SCP_EnterPlay), global::message.SCP_EnterPlay.Parser, new[]{ "MapID" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::message.CSP_MoveSync), global::message.CSP_MoveSync.Parser, new[]{ "PlayerID", "CurPos" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::message.PlayerMoveSyncInfo), global::message.PlayerMoveSyncInfo.Parser, new[]{ "PlayerID", "CurPos" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::message.CSP_MoveSync), global::message.CSP_MoveSync.Parser, new[]{ "PlayerID", "CurPos", "Time" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::message.PlayerMoveSyncInfo), global::message.PlayerMoveSyncInfo.Parser, new[]{ "PlayerID", "CurPos", "Time" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::message.SCP_MoveSync), global::message.SCP_MoveSync.Parser, new[]{ "AllSyncInfo" }, null, null, null, null)
           }));
     }
@@ -1682,6 +1683,7 @@ namespace message {
     public CSP_MoveSync(CSP_MoveSync other) : this() {
       playerID_ = other.playerID_;
       curPos_ = other.curPos_ != null ? other.curPos_.Clone() : null;
+      time_ = other.time_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -1712,6 +1714,17 @@ namespace message {
       }
     }
 
+    /// <summary>Field number for the "time" field.</summary>
+    public const int TimeFieldNumber = 3;
+    private float time_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float Time {
+      get { return time_; }
+      set {
+        time_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as CSP_MoveSync);
@@ -1727,6 +1740,7 @@ namespace message {
       }
       if (PlayerID != other.PlayerID) return false;
       if (!object.Equals(CurPos, other.CurPos)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Time, other.Time)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1735,6 +1749,7 @@ namespace message {
       int hash = 1;
       if (PlayerID != 0) hash ^= PlayerID.GetHashCode();
       if (curPos_ != null) hash ^= CurPos.GetHashCode();
+      if (Time != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Time);
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1756,6 +1771,10 @@ namespace message {
         output.WriteRawTag(18);
         output.WriteMessage(CurPos);
       }
+      if (Time != 0F) {
+        output.WriteRawTag(29);
+        output.WriteFloat(Time);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1769,6 +1788,9 @@ namespace message {
       }
       if (curPos_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(CurPos);
+      }
+      if (Time != 0F) {
+        size += 1 + 4;
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -1790,6 +1812,9 @@ namespace message {
         }
         CurPos.MergeFrom(other.CurPos);
       }
+      if (other.Time != 0F) {
+        Time = other.Time;
+      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -1810,6 +1835,10 @@ namespace message {
               CurPos = new global::message.Vector3Msg();
             }
             input.ReadMessage(CurPos);
+            break;
+          }
+          case 29: {
+            Time = input.ReadFloat();
             break;
           }
         }
@@ -1845,6 +1874,7 @@ namespace message {
     public PlayerMoveSyncInfo(PlayerMoveSyncInfo other) : this() {
       playerID_ = other.playerID_;
       curPos_ = other.curPos_ != null ? other.curPos_.Clone() : null;
+      time_ = other.time_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -1875,6 +1905,17 @@ namespace message {
       }
     }
 
+    /// <summary>Field number for the "time" field.</summary>
+    public const int TimeFieldNumber = 3;
+    private float time_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float Time {
+      get { return time_; }
+      set {
+        time_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as PlayerMoveSyncInfo);
@@ -1890,6 +1931,7 @@ namespace message {
       }
       if (PlayerID != other.PlayerID) return false;
       if (!object.Equals(CurPos, other.CurPos)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Time, other.Time)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1898,6 +1940,7 @@ namespace message {
       int hash = 1;
       if (PlayerID != 0) hash ^= PlayerID.GetHashCode();
       if (curPos_ != null) hash ^= CurPos.GetHashCode();
+      if (Time != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Time);
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1919,6 +1962,10 @@ namespace message {
         output.WriteRawTag(18);
         output.WriteMessage(CurPos);
       }
+      if (Time != 0F) {
+        output.WriteRawTag(29);
+        output.WriteFloat(Time);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1932,6 +1979,9 @@ namespace message {
       }
       if (curPos_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(CurPos);
+      }
+      if (Time != 0F) {
+        size += 1 + 4;
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -1953,6 +2003,9 @@ namespace message {
         }
         CurPos.MergeFrom(other.CurPos);
       }
+      if (other.Time != 0F) {
+        Time = other.Time;
+      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -1973,6 +2026,10 @@ namespace message {
               CurPos = new global::message.Vector3Msg();
             }
             input.ReadMessage(CurPos);
+            break;
+          }
+          case 29: {
+            Time = input.ReadFloat();
             break;
           }
         }

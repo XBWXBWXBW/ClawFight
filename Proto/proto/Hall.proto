@@ -59,11 +59,13 @@ message SCP_EnterPlay{
 message CSP_MoveSync{
 	int32 playerID = 1;
 	Vector3Msg curPos = 2;
+	float time = 3;
 }
 
 message PlayerMoveSyncInfo{
 	int32 playerID = 1;
 	Vector3Msg curPos = 2;
+	float time = 3;
 }
 
 message SCP_MoveSync{
