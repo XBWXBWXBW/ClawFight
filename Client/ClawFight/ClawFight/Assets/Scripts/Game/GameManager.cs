@@ -8,7 +8,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public string ipAddress = "172.20.16.71";
+    public string ipAddress = "127.0.0.1";
     public Camera viewCam;
     public bool isQuickEnter = false;
     public float rotateXSense = 1, rotateYSense = 1;
@@ -139,29 +139,9 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         UpdateTask();
-        UpdatePing();
+        TimeManager.instance.Update();
     }
-    private float pingCurTime = 0;
-    private float pingDelta = 0.1f;
-    private Ping ping;
-    public float pingTime = 0.0f;
-    void UpdatePing() {
-        if (ping == null)
-        {
-            pingCurTime += Time.deltaTime;
-            if (pingCurTime >= pingDelta)
-            {
-                ping = new Ping(ipAddress);
-            }
-        }
-        else {
-            if (ping.isDone) {
-                pingTime = ping.time;
-                ping.DestroyPing();
-                ping = null;
-            }
-        }
-    }
+    
     void UpdateTask() {
         LinkedListNode<IEnumerator> node = tasks.First;
         while (node != null)

@@ -23,7 +23,7 @@ public class NavigationView : ViewBase
     // Update is called once per frame
     void Update()
     {
-        pingText.text = GameManager.instance.pingTime.ToString();
+        pingText.text = TimeManager.instance.pingTime.ToString();
     }
     void OnSyncInfo() {
         IDText.text = PlayerManager.instance.mainPlayer.playerData.ID.ToString();

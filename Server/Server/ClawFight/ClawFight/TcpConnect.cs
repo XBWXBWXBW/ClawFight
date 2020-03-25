@@ -17,7 +17,7 @@ namespace ClawFight
         byte[] bytes = new byte[1024];
         public void Start() {
             Socket tcpSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            IPEndPoint endPoint = new IPEndPoint(IPAddress.Parse("172.20.16.71"), 50001);
+            IPEndPoint endPoint = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 50001);
             tcpSocket.Bind(endPoint);
             tcpSocket.Listen(10);
 

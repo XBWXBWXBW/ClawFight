@@ -88,6 +88,7 @@
     <Compile Include="Assets\Scripts\Proxy\ConnectProxy.cs" />
     <Compile Include="Assets\Scripts\Proxy\MatchProxy.cs" />
     <Compile Include="Assets\Scripts\Proxy\ProxyBase.cs" />
+    <Compile Include="Assets\Scripts\Time\TimeManager.cs" />
     <Compile Include="Assets\Scripts\View\HomeView.cs" />
     <Compile Include="Assets\Scripts\View\LoadingView.cs" />
     <Compile Include="Assets\Scripts\View\NavigationView.cs" />
